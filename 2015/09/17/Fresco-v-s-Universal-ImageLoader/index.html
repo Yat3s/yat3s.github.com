@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="fresco," />
 
 
 
@@ -39,15 +39,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yat3s">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步图片加载Fresco v/s Universal Image Loader (UIL)">
+<meta property="og:url" content="http://yoursite.com/2015/09/17/Fresco-v-s-Universal-ImageLoader/index.html">
 <meta property="og:site_name" content="Yat3s">
-<meta property="og:description">
+<meta property="og:description" content="在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做">
+<meta property="og:image" content="https://github.com/nostra13/Android-Universal-Image-Loader/raw/master/wiki/UIL_Flow.png">
+<meta property="og:image" content="http://i.stack.imgur.com/TdLCr.png">
+<meta property="og:updated_time" content="2015-09-17T08:58:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yat3s">
-<meta name="twitter:description">
+<meta name="twitter:title" content="异步图片加载Fresco v/s Universal Image Loader (UIL)">
+<meta name="twitter:description" content="在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +60,7 @@
   };
 </script>
 
-  <title> Yat3s </title>
+  <title> 异步图片加载Fresco v/s Universal Image Loader (UIL) | Yat3s </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -75,9 +78,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -145,9 +146,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div id="content" class="content"> 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -158,9 +159,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="url">
-                异步图片加载Fresco v/s Universal Image Loader (UIL)
-              </a>
+              异步图片加载Fresco v/s Universal Image Loader (UIL)
             
           
         </h1>
@@ -195,8 +194,7 @@
       
 
       
-        
-          <span itemprop="articleBody"><p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
+        <span itemprop="articleBody"><p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
 <h2 id="官方_Official">官方 Official</h2><h3 id="Fresco">Fresco</h3><p>官方文档</p>
 <blockquote>
 <p><a href="http://fresco-cn.org/" target="_blank" rel="external">http://fresco-cn.org/</a></p>
@@ -247,130 +245,56 @@
 <li>UIL 的在处理圆角边框缩放可能需要自己写View</li>
 </ul>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/fresco/" rel="tag">#fresco</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/16/retrofit/" rel="next">Android Retrofit框架的使用和个人见解</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-      
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/16/retrofit/" itemprop="url">
-                Android Retrofit框架的使用和个人见解
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-09-16T15:36:02+08:00" content="2015-09-16">
-            2015-09-16
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/16/retrofit/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/retrofit/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>在Android开发中经常会处理网络请求，接触这个框架也有一段时间了,它给了我很多的帮助，希望能分享给android新人。</p>
-<h2 id="简介">简介</h2><p>Retrofit官方给出的简介是这样的。</p>
-<blockquote>
-<p>Type-safe HTTP client for Android and Java by Square, Inc.</p>
-</blockquote>
-<p>简而言之就是帮我们处理好了很多Android网络请求相关的事情，比如异步加载数据、解析json、上传文件等<br>推荐Okhttp搭配使用，因为retrofit是优先使用okhttp。</p>
-<h2 id="特点">特点</h2><ul>
-<li>Gson解析json，快捷方便的处理网络数据</li>
-<li>配合Okhttp使用安全快捷的处理异步加载</li>
-<li>上传文件等处理便捷</li>
-</ul>
-<h2 id="官方">官方</h2><p>官方文档</p>
-<blockquote>
-<p><a href="http://square.github.io/retrofit/" target="_blank" rel="external">http://square.github.io/retrofit/</a></p>
-</blockquote>
-<p>Github地址</p>
-<blockquote>
-<p><a href="https://github.com/square/retrofit" target="_blank" rel="external">https://github.com/square/retrofit</a></p>
-</blockquote>
-<p>Gradle</p>
-<blockquote>
-<p>compile ‘com.squareup.retrofit:retrofit:2.0.0-beta1’</p>
-</blockquote>
-<p>这是2.0的测试版本，可以去官方看看稳定的低版本</p>
-<h2 id="使用">使用</h2><h3 id="一般的GET、POST、PUT、PATCH、DELETE方法">一般的GET、POST、PUT、PATCH、DELETE方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//创建Retrofit接口，这里用回调方式</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">API</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyService</span> </span>&#123;</span><br><span class="line">        <span class="annotation">@GET</span>(<span class="string">"/&#123;id&#125;/api"</span>)</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">getFoods</span><span class="params">(@path(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id ,@QueryMap Map&lt;String,Object&gt; param,Callback&lt;&lt;List&lt;Food&gt;&gt; callback)</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//这里要注意的是 post跟Patch方法都需要传Body(RESTful规范)</span></span><br><span class="line">        <span class="annotation">@POST</span>(<span class="string">"/your/api"</span>)</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">createFood</span><span class="params">(@Body Food food,Callback&lt;Response&gt; callback)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//跟post方法类似</span></span><br><span class="line">        <span class="annotation">@PATCH</span>(<span class="string">"/your/api"</span>)</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">modifyFood</span><span class="params">(@Body Food food ,Callback&lt;&lt;List&lt;Food&gt;&gt; callback)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//删除</span></span><br><span class="line">        <span class="annotation">@DELETE</span>(<span class="string">"/&#123;id&#125;/api"</span>)</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">deleteFood</span><span class="params">(@path(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id ,Callback&lt;&lt;List&lt;Food&gt;&gt; callback)</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MyService service = <span class="keyword">new</span> RestAdapter.Builder()</span><br><span class="line">            <span class="comment">//设置你的请求EndPoint</span></span><br><span class="line">            .setEndpoint(“http:<span class="comment">//123.0.0.0”)</span></span><br><span class="line">            <span class="comment">//设置Log提示</span></span><br><span class="line">            .setLogLevel(BuildConfig.DEBUG ? RestAdapter.LogLevel.FULL : RestAdapter.LogLevel.NONE)</span><br><span class="line">            <span class="comment">//设置请求其他参数 例如加header</span></span><br><span class="line">            .setRequestInterceptor(<span class="keyword">new</span> RequestInterceptor() &#123;</span><br><span class="line">                <span class="annotation">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">intercept</span><span class="params">(RequestFacade request)</span> </span>&#123;</span><br><span class="line">                    request.addHeader(<span class="string">"token"</span>, <span class="string">"your token"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).build().create(MyService.class);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用接口</span></span><br><span class="line"></span><br><span class="line">API.service.getFoods(id,param, <span class="keyword">new</span> Callback&lt;List&lt;Food&gt;&gt;() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">success</span><span class="params">(List&lt;Food&gt; foods, Response response)</span> </span>&#123;</span><br><span class="line">              <span class="comment">//请求成功 处理你的操作</span></span><br><span class="line">              <span class="comment">// foods 为已经解析的数据</span></span><br><span class="line">              <span class="comment">// response 含有服务器返回的所有信息</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError error)</span> </span>&#123;</span><br><span class="line">              <span class="comment">//请求失败</span></span><br><span class="line">              <span class="comment">//error含有所有错误信息</span></span><br><span class="line">              <span class="comment">//例如 error.getKind() == RetrofitError.Kind.NETWORK  网络连接异常</span></span><br><span class="line">              <span class="comment">//error.getResponse().getStatus(); 获取HTTP错误代码</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="文件上传">文件上传</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建接口</span></span><br><span class="line"><span class="annotation">@Multipart</span></span><br><span class="line"><span class="annotation">@POST</span>(<span class="string">"/images"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">upload</span><span class="params">(@Part(<span class="string">"file"</span>)</span> TypedFile file, Callback&lt;File&gt; callback)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">API.service.upload(<span class="keyword">new</span> TypedFile(<span class="string">"image/jpg"</span>,yourFile), <span class="keyword">new</span> Callback&lt;File&gt;()</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">success</span><span class="params">(File file, Response response)</span> </span>&#123;</span><br><span class="line">              <span class="comment">//请求成功 处理你的操作</span></span><br><span class="line">              <span class="comment">// foods 为已经解析的数据</span></span><br><span class="line">              <span class="comment">// response 含有服务器返回的所有信息</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError error)</span> </span>&#123;</span><br><span class="line">              <span class="comment">//请求失败</span></span><br><span class="line">              <span class="comment">//error含有所有错误信息</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="可能遇到的问题">可能遇到的问题</h2><ul>
-<li>如果需要单纯的获取服务器传来的json（也就是不解析）建议直接使用okhttp来获取网络。</li>
-<li>注意：post跟Patch方法都需要传Body对象，这也是RESTful的规范</li>
-<li>需要重写GSON解析可以参考官方文档</li>
-</ul>
-</span>
-        
+    <div class="post-spread">
       
     </div>
+  </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
  </div>
 
         
 
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/09/17/Fresco-v-s-Universal-ImageLoader/"
+                   data-title="异步图片加载Fresco v/s Universal Image Loader (UIL)" data-url="http://yoursite.com/2015/09/17/Fresco-v-s-Universal-ImageLoader/">
+              </div>
+            
+          </div>
         
       </div>
 
@@ -387,6 +311,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -448,6 +381,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方_Official"><span class="nav-number">1.</span> <span class="nav-text">官方 Official</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresco"><span class="nav-number">1.1.</span> <span class="nav-text">Fresco</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIL"><span class="nav-number">1.2.</span> <span class="nav-text">UIL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresco-1"><span class="nav-number">2.1.</span> <span class="nav-text">Fresco</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIL-1"><span class="nav-number">2.2.</span> <span class="nav-text">UIL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题总结"><span class="nav-number">3.</span> <span class="nav-text">问题总结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
       
 
     </div>
@@ -532,6 +476,165 @@
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
   <script type="text/javascript">
     $(document).ready(function () {
