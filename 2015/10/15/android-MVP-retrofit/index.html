@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="MVP,架构," />
 
 
 
@@ -39,19 +39,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="想着很多路都需要自己去走，不应该驻足太久，背起行囊。
-9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小">
+<meta name="description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+
+公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面试有感">
-<meta property="og:url" content="http://yoursite.com/2015/10/01/interview/index.html">
+<meta property="og:title" content="Android MVP模式架构分析">
+<meta property="og:url" content="http://yoursite.com/2015/10/15/android-MVP-retrofit/index.html">
 <meta property="og:site_name" content="Yat3s">
-<meta property="og:description" content="想着很多路都需要自己去走，不应该驻足太久，背起行囊。
-9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小">
-<meta property="og:updated_time" content="2015-10-02T07:26:07.000Z">
+<meta property="og:description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+
+公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
+<meta property="og:image" content="http://img.blog.csdn.net/20150622212916054">
+<meta property="og:image" content="http://i11.tietuku.com/a968df849545efd3.jpg">
+<meta property="og:image" content="http://i11.tietuku.com/1a16f0bd4d423965.jpg">
+<meta property="og:image" content="http://i11.tietuku.com/0609b28536d3fb0a.jpg">
+<meta property="og:updated_time" content="2015-10-15T10:17:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="面试有感">
-<meta name="twitter:description" content="想着很多路都需要自己去走，不应该驻足太久，背起行囊。
-9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小">
+<meta name="twitter:title" content="Android MVP模式架构分析">
+<meta name="twitter:description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+
+公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +68,7 @@
   };
 </script>
 
-  <title> 面试有感 | Yat3s </title>
+  <title> Android MVP模式架构分析 | Yat3s </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -168,7 +175,7 @@
           
           
             
-              面试有感
+              Android MVP模式架构分析
             
           
         </h1>
@@ -177,34 +184,19 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
-            2015-10-01
+          <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
+            2015-10-15
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/心情/" itemprop="url" rel="index">
-                  <span itemprop="name">心情</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
+              <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -218,26 +210,91 @@
       
 
       
-        <span itemprop="articleBody"><pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
-</code></pre><p>9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。<br>9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。<br>北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小旅馆，满心期待又不安的度过了一晚上。<br>上午。下起了小雨，吃早餐的心情就全无了，街边买了把雨伞，径直的往360奔去。<br>等候了20分钟，一副满脸刻着程序员的辛酸的一个大叔喊了我名字，拉到一个封闭的小房间，然后也没有自我介绍，只是简单的问了我的大四情况（因为没课才出来找实习的），后来叫我写一个二分查找的代码，当时想了几分钟写出来了，后面给了我一个链表问题，敢情我是对数据结构空洞的很，勉强的hack了一下解决方法，面试对我的答案很不满意，然后又问了我对android第三方框架是如何实现的，当时也没有研究的比较深入，就是简单的回答一下，结果也不是很理想。<br>撑着雨伞走在冷冷的街，也不知道哪边反向是对的，一直在反思什么，或许大学确实有很多遗憾吧。<br>下午。1.50准时抵达猎豹所在大厦，上了电梯，有一个貌似保安一样的人员守在外面，问我是不是面试，然后叫我拨打墙上的面试接待人员的电话，还没拨号，就有一个甜美的女生过来问我是不是面试，后来把我带进到办公室里面，里面确实很大很多人，不过给我的感觉似乎并没有很好，每个人都用心的做着事情，少了点什么味道。<br>坐下来，旁边还有2个也是面试android的人，看起来比我大。拿到卷子，简单的翻阅了一下，确实很简单，二十多道题统统给解决了，当时自信心也上升了许多。<br>后来甜美女生带我到楼下跟面试官聊。来了一个25岁左右的男生，坐下来叫我自我介绍一下，当时确实有点紧张，还好大学这样的场景经历的多，硬是把声音压到平稳，一面问了一些android基础问题，也是比较简单，后来一面面试官给我的反馈就是java基础不怎么好，也是很无奈，好好恶补java基础吧。二面来了一个成熟一点的大叔，我很担心他会不会给我来个数据结构或者难的算法，还好只是跟我谈谈项目以及我的个人性格，问了很多我平时休息时候做什么，有什么爱好等等，终于心里平复了许多，最后他说leader不在北京，叫我等leader电话，我觉得希望还是挺大的，不想了，现在结果也不知道。<br>第二天。好像贪睡的我还是起来了，赶着地铁来到朝外soho，比较高大上的地方，都是写字楼，很巧在上电梯的时候就遇到了跟我约面试的Anita，是一个人很好的姐姐，也很漂亮哦。<br>北京的上班是10点，等到10点20左右，来了一个跟我室友长得很像的跟我聊，他说他是做IOS的，当时我心里就紧张全无了，后来拿着我的简历叫我介绍一下上面写的框架，我很详细的介绍了每一个框架的使用跟功能，因为都用的比较多，所以很容易的答出来了，后面给我一个二叉树问题，数据结构我比较头疼，不过在指引下我还是做出来了，后面叫我写一个归并排序的代码，也算是写出来吧（提醒的比较多),然后是公司的CTO跟我面试，一看就是个大牛，聊得很少跟android相关，感觉是2个程序员在闲聊，确实这样的面试确实很棒，没有一点的心理负担，整场面试3个半小时，后面还请我吃了中饭简直赞。<br>后来Anita约我到星巴克聊offer的事情，聊了十几分钟，包括待遇和正在做的项目，项目是一个比较文艺的众论app（很赞），聊到待遇的时候给我的答案就是实习生，确实很无奈，自己没有毕业证只能拿到实习生的待遇（实习生跟正式生的待遇差别很大），当时唯一的想法快点毕业吧。我说给我7天的时间考虑一下。<br>3天感受到很多，在这样一个大都市里，互联网发展程度确实是其他城市很难比及的，当然这也是我所想要的工作环境（虽然现在很冷。。）.. 到饭店了，吃完饭再更吧。<br>10.2更新<br>一吃饭吃了1天….<br>昨晚很热情的Anita说老板想要见我，很惊讶（心想要干嘛XD）,如约到了一家高大上的环境很赞的餐厅，乡下人毕竟不太适应这样的场合，等了几分钟一个爆炸头姐姐到了，也就是Anita的公司CEO，不知不觉就聊了3个多个小时，聊了很多很多，我当时的第一反应就是CEO不是想单纯的找一个程序员，更希望的是找一个综合素质高的人，我觉得这样的老板给人的感觉更像是在创业，瞬间对初创公司的好感度up很多，爆炸头老板人也超nice的，虽然疯疯癫癫的。<br>此时做出来自己的最后的选择，初创公司，我觉得我更像是是选择一个老板，我觉得一个好的公司不是说你的规模有多大逼格有多高，更应该是有一个好的工作气氛以及好的上司。希望未来的时光能够工作愉快。<br>背起背包选择了一条路，勇敢的走下去吧。</p>
+        <span itemprop="articleBody"><blockquote>
+<p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
+</blockquote>
+<p>公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
+<p><img src="http://i11.tietuku.com/a968df849545efd3.jpg" alt=""><br>可以看到MVP模式中有个Presenter层</p>
+<p><img src="http://i11.tietuku.com/1a16f0bd4d423965.jpg" alt=""></p>
+<h2 id="MVP有什么优势">MVP有什么优势</h2><p>MVP模式可以让数据跟界面完全分离，View跟Model完全的解耦，方便我们做单元测试，同时也给activity进行减压</p>
+<p><img src="http://i11.tietuku.com/0609b28536d3fb0a.jpg" alt=""></p>
+<h2 id="Presenter">Presenter</h2><p>presenter层主要是处理一些数据逻辑，完成Model跟view层的交互，但是model跟view是无法单独交互的。</p>
+<p>`` Java<br>public class UserPresenter {</p>
+<pre><code>FeedActivity mView;
+FeedService feedService;
+
+<span class="function"><span class="keyword">public</span> <span class="title">UserPresenter</span><span class="params">(FeedActivity mView, FeedService feedService)</span> </span>{
+    <span class="keyword">this</span>.mView = mView;
+    <span class="keyword">this</span>.feedService = feedService;
+}
+
+<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">loadFeeds</span><span class="params">()</span></span>{
+    User user = <span class="keyword">new</span> User();
+    user.setId(<span class="string">"561103121400006a6496b6c6"</span>);
+    user.setUsed_ids(<span class="keyword">new</span> ArrayList&lt;String&gt;());
+    feedService.getApi().getFeeds(user, <span class="keyword">new</span> Callback&lt;BaseModel&lt;List&lt;Feed&gt;&gt;&gt;() {
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">(BaseModel&lt;List&lt;Feed&gt;&gt; listBaseModel, Response response)</span> </span>{
+            mView.display(listBaseModel.getData());
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError <span class="keyword">error</span>)</span> </span>{
+
+        }
+    });
+}
+</code></pre><p>}<br>``</p>
+<h2 id="View">View</h2><p>这里主要是activity，fragment（如果对fragment的生命周期不太了解就慎用），dialog等界面元素<br>只是单纯的处理界面的交互</p>
+<p>``java<br>public class FeedActivity extends AppCompatActivity{<br>    @Bind(R.id.recyclerView)<br>    RecyclerView feedRv;<br>    private FeedAdapter feedAdapter;<br>    private List<feed> feeds;<br>    private UserPresenter userPresenter;<br>    @Override<br>    protected void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_feeds);<br>        ButterKnife.bind(this);</feed></p>
+<pre><code>    initData();
+    getData();
+}
+
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>{
+    feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();
+    feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);
+    feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, null, <span class="number">3</span>, <span class="number">5</span>));
+    feedRv.setAdapter(feedAdapter);
+
+    userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());
+}
+
+
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>{
+    userPresenter.loadFeeds();
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>{
+    <span class="keyword">this</span>.feeds.addAll(feeds);
+    feedAdapter.notifyDataSetChanged();
+}
+</code></pre><p>}<br>``</p>
+<h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/MVP/" rel="tag">#MVP</a>
+          
+            <a href="/tags/架构/" rel="tag">#架构</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/15/android-MVP-retrofit/" rel="prev">Android MVP模式架构分析</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/21/RecyclerView/" rel="next">RecyclerView的使用技巧</a>
+              <a href="/2015/10/01/interview/" rel="next">面试有感</a>
             
           </div>
         </div>
@@ -262,8 +319,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/01/interview/"
-                   data-title="面试有感" data-url="http://yoursite.com/2015/10/01/interview/">
+              <div class="ds-thread" data-thread-key="2015/10/15/android-MVP-retrofit/"
+                   data-title="Android MVP模式架构分析" data-url="http://yoursite.com/2015/10/15/android-MVP-retrofit/">
               </div>
             
           </div>
@@ -359,7 +416,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP有什么优势"><span class="nav-number">1.</span> <span class="nav-text">MVP有什么优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presenter"><span class="nav-number">2.</span> <span class="nav-text">Presenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">3.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

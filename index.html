@@ -166,6 +166,135 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/15/android-MVP-retrofit/" itemprop="url">
+                Android MVP模式架构分析
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
+            2015-10-15
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><blockquote>
+<p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
+</blockquote>
+<p>公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
+<p><img src="http://i11.tietuku.com/a968df849545efd3.jpg" alt=""><br>可以看到MVP模式中有个Presenter层</p>
+<p><img src="http://i11.tietuku.com/1a16f0bd4d423965.jpg" alt=""></p>
+<h2 id="MVP有什么优势">MVP有什么优势</h2><p>MVP模式可以让数据跟界面完全分离，View跟Model完全的解耦，方便我们做单元测试，同时也给activity进行减压</p>
+<p><img src="http://i11.tietuku.com/0609b28536d3fb0a.jpg" alt=""></p>
+<h2 id="Presenter">Presenter</h2><p>presenter层主要是处理一些数据逻辑，完成Model跟view层的交互，但是model跟view是无法单独交互的。</p>
+<p>`` Java<br>public class UserPresenter {</p>
+<pre><code>FeedActivity mView;
+FeedService feedService;
+
+<span class="function"><span class="keyword">public</span> <span class="title">UserPresenter</span><span class="params">(FeedActivity mView, FeedService feedService)</span> </span>{
+    <span class="keyword">this</span>.mView = mView;
+    <span class="keyword">this</span>.feedService = feedService;
+}
+
+<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">loadFeeds</span><span class="params">()</span></span>{
+    User user = <span class="keyword">new</span> User();
+    user.setId(<span class="string">"561103121400006a6496b6c6"</span>);
+    user.setUsed_ids(<span class="keyword">new</span> ArrayList&lt;String&gt;());
+    feedService.getApi().getFeeds(user, <span class="keyword">new</span> Callback&lt;BaseModel&lt;List&lt;Feed&gt;&gt;&gt;() {
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">(BaseModel&lt;List&lt;Feed&gt;&gt; listBaseModel, Response response)</span> </span>{
+            mView.display(listBaseModel.getData());
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError <span class="keyword">error</span>)</span> </span>{
+
+        }
+    });
+}
+</code></pre><p>}<br>``</p>
+<h2 id="View">View</h2><p>这里主要是activity，fragment（如果对fragment的生命周期不太了解就慎用），dialog等界面元素<br>只是单纯的处理界面的交互</p>
+<p>``java<br>public class FeedActivity extends AppCompatActivity{<br>    @Bind(R.id.recyclerView)<br>    RecyclerView feedRv;<br>    private FeedAdapter feedAdapter;<br>    private List<feed> feeds;<br>    private UserPresenter userPresenter;<br>    @Override<br>    protected void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_feeds);<br>        ButterKnife.bind(this);</feed></p>
+<pre><code>    initData();
+    getData();
+}
+
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>{
+    feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();
+    feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);
+    feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, null, <span class="number">3</span>, <span class="number">5</span>));
+    feedRv.setAdapter(feedAdapter);
+
+    userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());
+}
+
+
+<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>{
+    userPresenter.loadFeeds();
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>{
+    <span class="keyword">this</span>.feeds.addAll(feeds);
+    feedAdapter.notifyDataSetChanged();
+}
+</code></pre><p>}<br>``</p>
+<h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/01/interview/" itemprop="url">
                 面试有感
               </a>
@@ -640,7 +769,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -654,7 +783,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
