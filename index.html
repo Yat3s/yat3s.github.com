@@ -213,57 +213,9 @@
 <h2 id="MVP有什么优势">MVP有什么优势</h2><p>MVP模式可以让数据跟界面完全分离，View跟Model完全的解耦，方便我们做单元测试，同时也给activity进行减压</p>
 <p><img src="http://i11.tietuku.com/0609b28536d3fb0a.jpg" alt=""></p>
 <h2 id="Presenter">Presenter</h2><p>presenter层主要是处理一些数据逻辑，完成Model跟view层的交互，但是model跟view是无法单独交互的。</p>
-<p>`` Java<br>public class UserPresenter {</p>
-<pre><code>FeedActivity mView;
-FeedService feedService;
-
-<span class="function"><span class="keyword">public</span> <span class="title">UserPresenter</span><span class="params">(FeedActivity mView, FeedService feedService)</span> </span>{
-    <span class="keyword">this</span>.mView = mView;
-    <span class="keyword">this</span>.feedService = feedService;
-}
-
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">loadFeeds</span><span class="params">()</span></span>{
-    User user = <span class="keyword">new</span> User();
-    user.setId(<span class="string">"561103121400006a6496b6c6"</span>);
-    user.setUsed_ids(<span class="keyword">new</span> ArrayList&lt;String&gt;());
-    feedService.getApi().getFeeds(user, <span class="keyword">new</span> Callback&lt;BaseModel&lt;List&lt;Feed&gt;&gt;&gt;() {
-        <span class="annotation">@Override</span>
-        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">(BaseModel&lt;List&lt;Feed&gt;&gt; listBaseModel, Response response)</span> </span>{
-            mView.display(listBaseModel.getData());
-        }
-
-        <span class="annotation">@Override</span>
-        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError <span class="keyword">error</span>)</span> </span>{
-
-        }
-    });
-}
-</code></pre><p>}<br>``</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    FeedActivity mView;</span><br><span class="line">    FeedService feedService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserPresenter</span><span class="params">(FeedActivity mView, FeedService feedService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mView = mView;</span><br><span class="line">        <span class="keyword">this</span>.feedService = feedService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadFeeds</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setId(<span class="string">"561103121400006a6496b6c6"</span>);</span><br><span class="line">        user.setUsed_ids(<span class="keyword">new</span> ArrayList&lt;String&gt;());</span><br><span class="line">        feedService.getApi().getFeeds(user, <span class="keyword">new</span> Callback&lt;BaseModel&lt;List&lt;Feed&gt;&gt;&gt;() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">success</span><span class="params">(BaseModel&lt;List&lt;Feed&gt;&gt; listBaseModel, Response response)</span> </span>&#123;</span><br><span class="line">                mView.display(listBaseModel.getData());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError error)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="View">View</h2><p>这里主要是activity，fragment（如果对fragment的生命周期不太了解就慎用），dialog等界面元素<br>只是单纯的处理界面的交互</p>
-<p>``java<br>public class FeedActivity extends AppCompatActivity{<br>    @Bind(R.id.recyclerView)<br>    RecyclerView feedRv;<br>    private FeedAdapter feedAdapter;<br>    private List<feed> feeds;<br>    private UserPresenter userPresenter;<br>    @Override<br>    protected void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_feeds);<br>        ButterKnife.bind(this);</feed></p>
-<pre><code>    initData();
-    getData();
-}
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>{
-    feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();
-    feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);
-    feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, null, <span class="number">3</span>, <span class="number">5</span>));
-    feedRv.setAdapter(feedAdapter);
-
-    userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());
-}
-
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>{
-    userPresenter.loadFeeds();
-}
-
-<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>{
-    <span class="keyword">this</span>.feeds.addAll(feeds);
-    feedAdapter.notifyDataSetChanged();
-}
-</code></pre><p>}<br>``</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeedActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</span><br><span class="line">    <span class="annotation">@Bind</span>(R.id.recyclerView)</span><br><span class="line">    RecyclerView feedRv;</span><br><span class="line">    <span class="keyword">private</span> FeedAdapter feedAdapter;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Feed&gt; feeds;</span><br><span class="line">    <span class="keyword">private</span> UserPresenter userPresenter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_feeds);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        initData();</span><br><span class="line">        getData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);</span><br><span class="line">        feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, <span class="keyword">null</span>, <span class="number">3</span>, <span class="number">5</span>));</span><br><span class="line">        feedRv.setAdapter(feedAdapter);</span><br><span class="line"></span><br><span class="line">        userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userPresenter.loadFeeds();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.feeds.addAll(feeds);</span><br><span class="line">        feedAdapter.notifyDataSetChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
 </span>
         
