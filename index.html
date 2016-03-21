@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion ">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,38 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
 
 
 <meta name="description">
@@ -50,10 +68,18 @@
 <meta name="twitter:description">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: '',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -62,35 +88,40 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
 
-  <div class="container one-column 
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Yat3s</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -104,28 +135,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首頁
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分類
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             歸檔
           </a>
         </li>
@@ -133,13 +160,14 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             標籤
           </a>
         </li>
       
 
-      
       
     </ul>
   
@@ -152,59 +180,83 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/15/android-MVP-retrofit/" itemprop="url">
-                Android MVP模式架构分析
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
-            2015-10-15
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
-              </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/15/android-MVP-retrofit/" itemprop="url">
+                  Android MVP模式架构分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
             </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><blockquote>
+          
+            <blockquote>
 <p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
 </blockquote>
 <p>公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
@@ -217,8 +269,13 @@
 <h2 id="View">View</h2><p>这里主要是activity，fragment（如果对fragment的生命周期不太了解就慎用），dialog等界面元素<br>只是单纯的处理界面的交互</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeedActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</span><br><span class="line">    <span class="annotation">@Bind</span>(R.id.recyclerView)</span><br><span class="line">    RecyclerView feedRv;</span><br><span class="line">    <span class="keyword">private</span> FeedAdapter feedAdapter;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Feed&gt; feeds;</span><br><span class="line">    <span class="keyword">private</span> UserPresenter userPresenter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_feeds);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        initData();</span><br><span class="line">        getData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);</span><br><span class="line">        feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, <span class="keyword">null</span>, <span class="number">3</span>, <span class="number">5</span>));</span><br><span class="line">        feedRv.setAdapter(feedAdapter);</span><br><span class="line"></span><br><span class="line">        userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userPresenter.loadFeeds();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.feeds.addAll(feeds);</span><br><span class="line">        feedAdapter.notifyDataSetChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -238,72 +295,103 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/01/interview/" itemprop="url">
-                面试有感
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
-            2015-10-01
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/心情/" itemprop="url" rel="index">
-                  <span itemprop="name">心情</span>
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/01/interview/" itemprop="url">
+                  面试有感
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
+              2015-10-01
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/心情/" itemprop="url" rel="index">
+                    <span itemprop="name">心情</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
+          
+            <pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
 </code></pre><p>9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。<br>9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。<br>北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小旅馆，满心期待又不安的度过了一晚上。<br>上午。下起了小雨，吃早餐的心情就全无了，街边买了把雨伞，径直的往360奔去。<br>等候了20分钟，一副满脸刻着程序员的辛酸的一个大叔喊了我名字，拉到一个封闭的小房间，然后也没有自我介绍，只是简单的问了我的大四情况（因为没课才出来找实习的），后来叫我写一个二分查找的代码，当时想了几分钟写出来了，后面给了我一个链表问题，敢情我是对数据结构空洞的很，勉强的hack了一下解决方法，面试对我的答案很不满意，然后又问了我对android第三方框架是如何实现的，当时也没有研究的比较深入，就是简单的回答一下，结果也不是很理想。<br>撑着雨伞走在冷冷的街，也不知道哪边反向是对的，一直在反思什么，或许大学确实有很多遗憾吧。<br>下午。1.50准时抵达猎豹所在大厦，上了电梯，有一个貌似保安一样的人员守在外面，问我是不是面试，然后叫我拨打墙上的面试接待人员的电话，还没拨号，就有一个甜美的女生过来问我是不是面试，后来把我带进到办公室里面，里面确实很大很多人，不过给我的感觉似乎并没有很好，每个人都用心的做着事情，少了点什么味道。<br>坐下来，旁边还有2个也是面试android的人，看起来比我大。拿到卷子，简单的翻阅了一下，确实很简单，二十多道题统统给解决了，当时自信心也上升了许多。<br>后来甜美女生带我到楼下跟面试官聊。来了一个25岁左右的男生，坐下来叫我自我介绍一下，当时确实有点紧张，还好大学这样的场景经历的多，硬是把声音压到平稳，一面问了一些android基础问题，也是比较简单，后来一面面试官给我的反馈就是java基础不怎么好，也是很无奈，好好恶补java基础吧。二面来了一个成熟一点的大叔，我很担心他会不会给我来个数据结构或者难的算法，还好只是跟我谈谈项目以及我的个人性格，问了很多我平时休息时候做什么，有什么爱好等等，终于心里平复了许多，最后他说leader不在北京，叫我等leader电话，我觉得希望还是挺大的，不想了，现在结果也不知道。<br>第二天。好像贪睡的我还是起来了，赶着地铁来到朝外soho，比较高大上的地方，都是写字楼，很巧在上电梯的时候就遇到了跟我约面试的Anita，是一个人很好的姐姐，也很漂亮哦。<br>北京的上班是10点，等到10点20左右，来了一个跟我室友长得很像的跟我聊，他说他是做IOS的，当时我心里就紧张全无了，后来拿着我的简历叫我介绍一下上面写的框架，我很详细的介绍了每一个框架的使用跟功能，因为都用的比较多，所以很容易的答出来了，后面给我一个二叉树问题，数据结构我比较头疼，不过在指引下我还是做出来了，后面叫我写一个归并排序的代码，也算是写出来吧（提醒的比较多),然后是公司的CTO跟我面试，一看就是个大牛，聊得很少跟android相关，感觉是2个程序员在闲聊，确实这样的面试确实很棒，没有一点的心理负担，整场面试3个半小时，后面还请我吃了中饭简直赞。<br>后来Anita约我到星巴克聊offer的事情，聊了十几分钟，包括待遇和正在做的项目，项目是一个比较文艺的众论app（很赞），聊到待遇的时候给我的答案就是实习生，确实很无奈，自己没有毕业证只能拿到实习生的待遇（实习生跟正式生的待遇差别很大），当时唯一的想法快点毕业吧。我说给我7天的时间考虑一下。<br>3天感受到很多，在这样一个大都市里，互联网发展程度确实是其他城市很难比及的，当然这也是我所想要的工作环境（虽然现在很冷。。）.. 到饭店了，吃完饭再更吧。<br>10.2更新<br>一吃饭吃了1天….<br>昨晚很热情的Anita说老板想要见我，很惊讶（心想要干嘛XD）,如约到了一家高大上的环境很赞的餐厅，乡下人毕竟不太适应这样的场合，等了几分钟一个爆炸头姐姐到了，也就是Anita的公司CEO，不知不觉就聊了3个多个小时，聊了很多很多，我当时的第一反应就是CEO不是想单纯的找一个程序员，更希望的是找一个综合素质高的人，我觉得这样的老板给人的感觉更像是在创业，瞬间对初创公司的好感度up很多，爆炸头老板人也超nice的，虽然疯疯癫癫的。<br>此时做出来自己的最后的选择，初创公司，我觉得我更像是是选择一个老板，我觉得一个好的公司不是说你的规模有多大逼格有多高，更应该是有一个好的工作气氛以及好的上司。希望未来的时光能够工作愉快。<br>背起背包选择了一条路，勇敢的走下去吧。</p>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -323,69 +411,95 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/21/RecyclerView/" itemprop="url">
-                RecyclerView的使用技巧
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-09-21T20:17:56+08:00" content="2015-09-21">
-            2015-09-21
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/控件/" itemprop="url" rel="index">
-                  <span itemprop="name">控件</span>
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/21/RecyclerView/" itemprop="url">
+                  RecyclerView的使用技巧
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-09-21T20:17:56+08:00" content="2015-09-21">
+              2015-09-21
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/09/21/RecyclerView/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/RecyclerView/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/控件/" itemprop="url" rel="index">
+                    <span itemprop="name">控件</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/21/RecyclerView/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/RecyclerView/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>RecyclerView(ListView)在一个App中出现的频率还是非常高的，它是官方出的一个用来替代ListView、GridView的控件，下面简单的介绍一下RecyclerView中一些简单的使用技巧。</p>
+          
+            <p>RecyclerView(ListView)在一个App中出现的频率还是非常高的，它是官方出的一个用来替代ListView、GridView的控件，下面简单的介绍一下RecyclerView中一些简单的使用技巧。</p>
 <h2 id="官方">官方</h2><p>官方网址(需要翻墙)</p>
 <blockquote>
 <p><a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html</a></p>
@@ -420,8 +534,13 @@
 <li>RecyclerView嵌套在ScrollView里面是一行都不显示的(ListView显示一行)这里需要重写LayoutManager，具体可google</li>
 <li>在5.0以上的手机 RecyclerView嵌套在ScrollView 重写LayoutManager后 RecyclerView的滑动惯性会消失，此时可重写ScrollView即可<br>-</li>
 </ul>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -441,69 +560,95 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="url">
-                异步图片加载Fresco v/s Universal Image Loader (UIL)
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-09-17T15:58:07+08:00" content="2015-09-17">
-            2015-09-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/框架/" itemprop="url" rel="index">
-                  <span itemprop="name">框架</span>
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="url">
+                  异步图片加载Fresco v/s Universal Image Loader (UIL)
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-09-17T15:58:07+08:00" content="2015-09-17">
+              2015-09-17
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
+          
+            <p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
 <h2 id="官方_Official">官方 Official</h2><h3 id="Fresco">Fresco</h3><p>官方文档</p>
 <blockquote>
 <p><a href="http://fresco-cn.org/" target="_blank" rel="external">http://fresco-cn.org/</a></p>
@@ -553,8 +698,13 @@
 <li>Fresco 在IDE布局预览的时候可能会有问题</li>
 <li>UIL 的在处理圆角边框缩放可能需要自己写View</li>
 </ul>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -574,69 +724,95 @@
     
       
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/16/retrofit/" itemprop="url">
-                Android Retrofit框架的使用和个人见解
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-09-16T15:36:02+08:00" content="2015-09-16">
-            2015-09-16
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/框架/" itemprop="url" rel="index">
-                  <span itemprop="name">框架</span>
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/16/retrofit/" itemprop="url">
+                  Android Retrofit框架的使用和个人见解
                 </a>
-              </span>
-
               
-              
-
             
-          </span>
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-09-16T15:36:02+08:00" content="2015-09-16">
+              2015-09-16
+            </time>
+          </span>
+
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/09/16/retrofit/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/retrofit/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/16/retrofit/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/retrofit/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody"><p>在Android开发中经常会处理网络请求，接触这个框架也有一段时间了,它给了我很多的帮助，希望能分享给android新人。</p>
+          
+            <p>在Android开发中经常会处理网络请求，接触这个框架也有一段时间了,它给了我很多的帮助，希望能分享给android新人。</p>
 <h2 id="简介">简介</h2><p>Retrofit官方给出的简介是这样的。</p>
 <blockquote>
 <p>Type-safe HTTP client for Android and Java by Square, Inc.</p>
@@ -668,8 +844,13 @@
 <li>注意：post跟Patch方法都需要传Body对象，这也是RESTful的规范</li>
 <li>需要重写GSON解析可以参考官方文档</li>
 </ul>
-</span>
+
+          
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -690,14 +871,17 @@
   </section>
 
   
- </div>
 
+
+          </div>
+          
+
+
+          
+
+        </div>
         
-
-        
-      </div>
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -712,12 +896,16 @@
 
       
 
-      <section class="site-overview">
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="Yat3s" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Yat3s" />
           <p class="site-author-name" itemprop="name">Yat3s</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
-        <p class="site-description motion-element" itemprop="description"></p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -726,19 +914,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">分類</span>
-              </a>
-          </div>
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分類</span>
+              
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">標籤</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">標籤</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -748,15 +940,27 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/Yat3s" target="_blank">Github</a>
+                <a href="https://github.com/Yat3s" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/104645643" target="_blank">Weibo</a>
+                <a href="http://weibo.com/104645643" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.facebook.com/Hawkoyates" target="_blank">Facebook</a>
+                <a href="http://www.facebook.com/Hawkoyates" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Facebook
+                  
+                </a>
               </span>
             
           
@@ -765,7 +969,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -777,15 +982,18 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Yat3s</span>
 </div>
@@ -797,23 +1005,77 @@
 <div class="theme-info">
   主題 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Pisces
   </a>
 </div>
 
 
- </div>
+
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
   
-    
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
 
   
     
@@ -824,63 +1086,28 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
 
 
 
-
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
-
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+
 </body>
 </html>

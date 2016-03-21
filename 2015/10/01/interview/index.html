@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion ">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,25 +23,38 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
 
 
 <meta name="description" content="想着很多路都需要自己去走，不应该驻足太久，背起行囊。
@@ -54,10 +72,18 @@
 9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: '',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -66,33 +92,38 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Yat3s</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -106,28 +137,24 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首頁
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
-            分類
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             歸檔
           </a>
         </li>
@@ -135,13 +162,14 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             標籤
           </a>
         </li>
       
 
-      
       
     </ul>
   
@@ -154,73 +182,105 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              面试有感
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
-            2015-10-01
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/心情/" itemprop="url" rel="index">
-                  <span itemprop="name">心情</span>
-                </a>
-              </span>
-
-              
-              
-
             
+              
+                面试有感
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
+              2015-10-01
+            </time>
           </span>
-        
 
-        
           
-            <span class="post-comments-count">
+            <span class="post-category" >
               &nbsp; | &nbsp;
-              <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
-              </a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/心情/" itemprop="url" rel="index">
+                    <span itemprop="name">心情</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
             </span>
           
-        
-      </div>
-    </header>
 
-    <div class="post-body">
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
+        <pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
 </code></pre><p>9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。<br>9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。<br>北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小旅馆，满心期待又不安的度过了一晚上。<br>上午。下起了小雨，吃早餐的心情就全无了，街边买了把雨伞，径直的往360奔去。<br>等候了20分钟，一副满脸刻着程序员的辛酸的一个大叔喊了我名字，拉到一个封闭的小房间，然后也没有自我介绍，只是简单的问了我的大四情况（因为没课才出来找实习的），后来叫我写一个二分查找的代码，当时想了几分钟写出来了，后面给了我一个链表问题，敢情我是对数据结构空洞的很，勉强的hack了一下解决方法，面试对我的答案很不满意，然后又问了我对android第三方框架是如何实现的，当时也没有研究的比较深入，就是简单的回答一下，结果也不是很理想。<br>撑着雨伞走在冷冷的街，也不知道哪边反向是对的，一直在反思什么，或许大学确实有很多遗憾吧。<br>下午。1.50准时抵达猎豹所在大厦，上了电梯，有一个貌似保安一样的人员守在外面，问我是不是面试，然后叫我拨打墙上的面试接待人员的电话，还没拨号，就有一个甜美的女生过来问我是不是面试，后来把我带进到办公室里面，里面确实很大很多人，不过给我的感觉似乎并没有很好，每个人都用心的做着事情，少了点什么味道。<br>坐下来，旁边还有2个也是面试android的人，看起来比我大。拿到卷子，简单的翻阅了一下，确实很简单，二十多道题统统给解决了，当时自信心也上升了许多。<br>后来甜美女生带我到楼下跟面试官聊。来了一个25岁左右的男生，坐下来叫我自我介绍一下，当时确实有点紧张，还好大学这样的场景经历的多，硬是把声音压到平稳，一面问了一些android基础问题，也是比较简单，后来一面面试官给我的反馈就是java基础不怎么好，也是很无奈，好好恶补java基础吧。二面来了一个成熟一点的大叔，我很担心他会不会给我来个数据结构或者难的算法，还好只是跟我谈谈项目以及我的个人性格，问了很多我平时休息时候做什么，有什么爱好等等，终于心里平复了许多，最后他说leader不在北京，叫我等leader电话，我觉得希望还是挺大的，不想了，现在结果也不知道。<br>第二天。好像贪睡的我还是起来了，赶着地铁来到朝外soho，比较高大上的地方，都是写字楼，很巧在上电梯的时候就遇到了跟我约面试的Anita，是一个人很好的姐姐，也很漂亮哦。<br>北京的上班是10点，等到10点20左右，来了一个跟我室友长得很像的跟我聊，他说他是做IOS的，当时我心里就紧张全无了，后来拿着我的简历叫我介绍一下上面写的框架，我很详细的介绍了每一个框架的使用跟功能，因为都用的比较多，所以很容易的答出来了，后面给我一个二叉树问题，数据结构我比较头疼，不过在指引下我还是做出来了，后面叫我写一个归并排序的代码，也算是写出来吧（提醒的比较多),然后是公司的CTO跟我面试，一看就是个大牛，聊得很少跟android相关，感觉是2个程序员在闲聊，确实这样的面试确实很棒，没有一点的心理负担，整场面试3个半小时，后面还请我吃了中饭简直赞。<br>后来Anita约我到星巴克聊offer的事情，聊了十几分钟，包括待遇和正在做的项目，项目是一个比较文艺的众论app（很赞），聊到待遇的时候给我的答案就是实习生，确实很无奈，自己没有毕业证只能拿到实习生的待遇（实习生跟正式生的待遇差别很大），当时唯一的想法快点毕业吧。我说给我7天的时间考虑一下。<br>3天感受到很多，在这样一个大都市里，互联网发展程度确实是其他城市很难比及的，当然这也是我所想要的工作环境（虽然现在很冷。。）.. 到饭店了，吃完饭再更吧。<br>10.2更新<br>一吃饭吃了1天….<br>昨晚很热情的Anita说老板想要见我，很惊讶（心想要干嘛XD）,如约到了一家高大上的环境很赞的餐厅，乡下人毕竟不太适应这样的场合，等了几分钟一个爆炸头姐姐到了，也就是Anita的公司CEO，不知不觉就聊了3个多个小时，聊了很多很多，我当时的第一反应就是CEO不是想单纯的找一个程序员，更希望的是找一个综合素质高的人，我觉得这样的老板给人的感觉更像是在创业，瞬间对初创公司的好感度up很多，爆炸头老板人也超nice的，虽然疯疯癫癫的。<br>此时做出来自己的最后的选择，初创公司，我觉得我更像是是选择一个老板，我觉得一个好的公司不是说你的规模有多大逼格有多高，更应该是有一个好的工作气氛以及好的上司。希望未来的时光能够工作愉快。<br>背起背包选择了一条路，勇敢的走下去吧。</p>
-</span>
+
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -229,15 +289,19 @@
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/android-MVP-retrofit/" rel="prev">Android MVP模式架构分析</a>
+              <a href="/2015/09/21/RecyclerView/" rel="next" title="RecyclerView的使用技巧">
+                <i class="fa fa-chevron-left"></i> RecyclerView的使用技巧
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/21/RecyclerView/" rel="next">RecyclerView的使用技巧</a>
+              <a href="/2015/10/15/android-MVP-retrofit/" rel="prev" title="Android MVP模式架构分析">
+                Android MVP模式架构分析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -255,22 +319,24 @@
     </div>
   </div>
 
- </div>
 
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2015/10/01/interview/"
-                   data-title="面试有感" data-url="http://yoursite.com/2015/10/01/interview/">
-              </div>
-            
           </div>
-        
-      </div>
+          
 
-      
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/01/interview/"
+           data-title="面试有感" data-url="http://yoursite.com/2015/10/01/interview/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -284,6 +350,8 @@
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目錄
@@ -294,12 +362,14 @@
         </ul>
       
 
-      <section class="site-overview">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="Yat3s" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Yat3s" />
           <p class="site-author-name" itemprop="name">Yat3s</p>
+          <p class="site-description motion-element" itemprop="description"></p>
         </div>
-        <p class="site-description motion-element" itemprop="description"></p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -308,19 +378,23 @@
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">分類</span>
-              </a>
-          </div>
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分類</span>
+              
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">11</span>
-              <span class="site-state-item-name">標籤</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">標籤</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -330,15 +404,27 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/Yat3s" target="_blank">Github</a>
+                <a href="https://github.com/Yat3s" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/104645643" target="_blank">Weibo</a>
+                <a href="http://weibo.com/104645643" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.facebook.com/Hawkoyates" target="_blank">Facebook</a>
+                <a href="http://www.facebook.com/Hawkoyates" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Facebook
+                  
+                </a>
               </span>
             
           
@@ -347,22 +433,29 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <p class="post-toc-empty">此文章未包含目錄</p>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -370,15 +463,18 @@
   </aside>
 
 
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Yat3s</span>
 </div>
@@ -390,67 +486,70 @@
 <div class="theme-info">
   主題 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Pisces
   </a>
 </div>
 
 
- </div>
+
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"Yat3s"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -530,7 +629,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -584,7 +683,7 @@
 
     $('.post-toc a').on('click', function (e) {
       e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
       var offset = $(targetSelector).offset().top;
       hasVelocity ?
         html.velocity('stop').velocity('scroll', {
@@ -597,42 +696,60 @@
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
       }
-    }
+    };
   });
 </script>
 
 
 
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
   <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
+    var duoshuoQuery = {short_name:"Yat3s"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
   </script>
 
   
+    
+  
+
+
+
+
 
   
   
+  
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
+
 </body>
 </html>
