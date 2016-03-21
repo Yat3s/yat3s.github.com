@@ -259,7 +259,7 @@
             <blockquote>
 <p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
 </blockquote>
-<p>公司已经把IOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
+<p>公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
 <p><img src="http://i11.tietuku.com/a968df849545efd3.jpg" alt=""><br>可以看到MVP模式中有个Presenter层</p>
 <p><img src="http://i11.tietuku.com/1a16f0bd4d423965.jpg" alt=""></p>
 <h2 id="MVP有什么优势">MVP有什么优势</h2><p>MVP模式可以让数据跟界面完全分离，View跟Model完全的解耦，方便我们做单元测试，同时也给activity进行减压</p>
