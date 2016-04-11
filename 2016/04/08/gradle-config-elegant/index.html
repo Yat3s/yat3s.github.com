@@ -1,0 +1,997 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Why Gradle
+Gradle makes the impossible possible, the possible easy and the easy elegant.
+
+在Android开发中经常会用Gradle来构建项目，Gradle能很方便的项目的版本集成和打包，虽Gradle官方已经给出很详细的文档了，但还是有必要抽离出一些常用的配置。整个Android项目的编译依赖于Gradle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常用的Gradle配置和加速编译">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/gradle-config-elegant/index.html">
+<meta property="og:site_name" content="Yat3s">
+<meta property="og:description" content="Why Gradle
+Gradle makes the impossible possible, the possible easy and the easy elegant.
+
+在Android开发中经常会用Gradle来构建项目，Gradle能很方便的项目的版本集成和打包，虽Gradle官方已经给出很详细的文档了，但还是有必要抽离出一些常用的配置。整个Android项目的编译依赖于Gradle">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/0060lm7Tgw1f2t8n81eusj30h40kemzj.jpg">
+<meta property="og:updated_time" content="2016-04-11T17:15:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android常用的Gradle配置和加速编译">
+<meta name="twitter:description" content="Why Gradle
+Gradle makes the impossible possible, the possible easy and the easy elegant.
+
+在Android开发中经常会用Gradle来构建项目，Gradle能很方便的项目的版本集成和打包，虽Gradle官方已经给出很详细的文档了，但还是有必要抽离出一些常用的配置。整个Android项目的编译依赖于Gradle">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Android常用的Gradle配置和加速编译 | Yat3s </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Yat3s</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android常用的Gradle配置和加速编译
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-04-08T18:56:40+08:00" content="2016-04-08">
+              2016-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Gradle/" itemprop="url" rel="index">
+                    <span itemprop="name">Gradle</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/08/gradle-config-elegant/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/gradle-config-elegant/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Why_Gradle">Why Gradle</h2><blockquote>
+<p>Gradle makes the impossible possible, the possible easy and the easy elegant.</p>
+</blockquote>
+<p>在Android开发中经常会用Gradle来构建项目，Gradle能很方便的项目的版本集成和打包，虽Gradle官方已经给出很详细的文档了，但还是有必要抽离出一些常用的配置。<br>整个Android项目的编译依赖于Gradle的编译，虽然前几天发布了Android 2.0 stable，拥有了Instant Run强大的功能，但是有“改一行布局代码Run一次”习惯的同学有必要知道如何加速Gradle的编译。<br>主要介绍一下：</p>
+<blockquote>
+<ul>
+<li>如何配置Gradle</li>
+<li>如何加速Gradle的编译</li>
+<li>一些常用的项目构建知识</li>
+</ul>
+</blockquote>
+<h3 id="How_Gradle">How Gradle</h3><p> gradle.properties文件适合配置IDE的属性，当然也适合配置你在项目的关键/敏感参数，因为它将运行在Incubating parallel mode(<br>孵化并行模式，应该解释为运行时候嵌入在项目当中)，也是属于默认的gitignore，这样你的敏感信息（key账号密码，appkey等）就不会被push到git了，你需要注意的是<strong> 属性中有中文的话，记得转成unicode来显示，不然可能引发一些莫名的错误 </strong></p>
+<p>类似于这样，你可以把你的<strong>签名keystore的信息，服务端的endpoint，第三方服务的appkey，ide的配置信息</strong>放在这。</p>
+<pre><code><span class="setting">KEY_ALIAS=<span class="value">yat3s</span></span>
+<span class="setting">KEYSTORE_PASSWORD=<span class="value"><span class="number">123456</span></span></span>
+<span class="setting">KEY_PASSWORD=<span class="value"><span class="number">123456</span></span></span>
+<span class="setting">umeng_appkey_product=<span class="value">adcdefghijk   </span></span>
+<span class="setting">umeng_appkey_dev=<span class="value">adcdefghijk</span></span>
+<span class="setting">deepshare_appid=<span class="value">adcdefghijk</span></span>
+<span class="setting">bugly_appid_product=<span class="value">adcdefghijk  </span></span>
+<span class="setting">bugly_appid_dev=<span class="value">adcdefghijk  </span></span>
+<span class="setting">rong_appkey=<span class="value">adcdefghijk   </span></span>
+<span class="setting">endpoint_product=<span class="value">http://api.yat3s.com</span></span>
+<span class="setting">endpoint_dev=<span class="value">http://api.yat3s.com:<span class="number">9000</span></span></span>
+<span class="setting">app_name=<span class="value">\u006f\u0070\u0065\u006e\u5f00\u8154</span></span>
+</code></pre><p><strong> 那么配置好这些信息如何在Gradle和Java中使用呢？</strong><br>其实Groovy语言和Java很接近也很好用，往下看↓</p>
+<h4 id="buildTypes">buildTypes</h4><pre><code><span class="title">buildTypes</span> {
+<span class="title">release</span> {
+    <span class="title">minifyEnabled</span> <span class="built_in">true</span>
+    shrinkResources <span class="built_in">true</span>
+    signingConfig signingConfigs.release
+    proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span>
+    buildConfigField <span class="string">"String"</span>, <span class="string">"ENDPOINT"</span>, <span class="string">"\"<span class="variable">${endpoint_product}</span>\""</span>
+    resValue <span class="string">"string"</span>, <span class="string">"umeng_appkey"</span>, <span class="string">"<span class="variable">${umeng_appkey_product}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"deepshare_appid"</span>, <span class="string">"<span class="variable">${deepshare_appid}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"bugly_appid"</span>, <span class="string">"<span class="variable">${bugly_appid_product}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"rong_appkey"</span>, <span class="string">"<span class="variable">${rong_appkey}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"channel"</span>, <span class="string">"product"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"op_app_name"</span>, <span class="string">"<span class="variable">${app_name}</span>"</span>
+}
+<span class="built_in">debug</span> {
+    <span class="title">signingConfig</span> signingConfigs.release
+    proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span>
+    buildConfigField <span class="string">"String"</span>, <span class="string">"ENDPOINT"</span>, <span class="string">"\"<span class="variable">${endpoint_product}</span>\""</span>
+    resValue <span class="string">"string"</span>, <span class="string">"umeng_appkey"</span>, <span class="string">"<span class="variable">${umeng_appkey_dev}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"deepshare_appid"</span>, <span class="string">"<span class="variable">${deepshare_appid}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"bugly_appid"</span>, <span class="string">"<span class="variable">${bugly_appid_dev}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"rong_appkey"</span>, <span class="string">"<span class="variable">${rong_appkey}</span>"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"channel"</span>, <span class="string">"dev"</span>
+    resValue <span class="string">"string"</span>, <span class="string">"op_app_name"</span>, <span class="string">"dev_<span class="variable">${app_name}</span>"</span>
+  }
+}
+</code></pre><ul>
+<li>引用gradle.properties 只需要加  ${key}</li>
+<li>定义在 buildConfigField “String”, “ENDPOINT”,”\”${endpoint_product}\””，在Java享用时候只需要读取BuildConfig.ENDPOINT即可</li>
+<li>定义在 resValue “string”, “umeng_appkey”, “${umeng_appkey_product}” ， 在xml中享用只需要R.string.umeng_appkey即可</li>
+</ul>
+<p>记住几个点：</p>
+<blockquote>
+<ul>
+<li>在你确保你minifyEnabled(混淆)没问题的时候debug模式尽量别开minifyEnabled<br>和shrinkResources，这样会大大降低编译速度</li>
+<li>如果真要开混淆，把生成mapping关掉</li>
+<li>尽量把一些第三方key分成staging和product，这样容错性高，避免你推送给你的用户一个”Test”</li>
+<li>定义buildConfigField时候注意双引号的问题 “\”${endpoint_product}\””</li>
+<li>如果不方便管理签名可debug和release同一个签名。<strong> 如果需要同时安装debug和release包只需要修改applicationId即可 </strong></li>
+</ul>
+</blockquote>
+<h4 id="defaultConfig">defaultConfig</h4><p>这里尽量新建一个Conifg.gradle文件来统一管理这些基本配置（在project下右键new file即可） ，</p>
+<p>Config.gradle文件如下</p>
+<pre><code>ext {
+android = [<span class="string">compileSdkVersion:</span> <span class="number">23</span>,
+<span class="label">           buildToolsVersion:</span> <span class="string">"23.0.1"</span>,
+           <span class="string">applicationId    :</span> <span class="string">"com.yat3s.d3v"</span>,
+           <span class="string">minSdkVersion    :</span> <span class="number">15</span>,
+           <span class="string">targetSdkVersion :</span> <span class="number">23</span>,
+           <span class="string">versionCode      :</span> <span class="number">36</span>,
+           <span class="string">versionName      :</span> <span class="string">"1.3.1"</span>]
+}
+dependencies = [
+               <span class="string">design              :</span> <span class="string">"com.android.support:design:23.3.0"</span>,
+               <span class="string">nineoldandroids     :</span> <span class="string">"com.nineoldandroids:library:2.4.0"</span>,
+               <span class="string">retrofit            :</span> <span class="string">"com.squareup.retrofit:retrofit:2.0.0"</span>,
+               <span class="string">rxandroid           :</span> <span class="string">"io.reactivex:rxandroid:1.0.0"</span>,
+               okhttp-<span class="string">urlconnection:</span> <span class="string">"com.squareup.okhttp:okhttp-urlconnection:2.0.0"</span>,
+               <span class="string">okhttp              :</span> <span class="string">"com.squareup.okhttp:okhttp:2.0.0"</span>,
+               <span class="string">butterknife         :</span> <span class="string">"com.jakewharton:butterknife:7.0.1"</span>]
+</code></pre><p>然后在<strong>项目的build.gradle</strong>文件下添加 <strong> apply from: “config.gradle” </strong></p>
+<pre><code>apply <span class="keyword">from</span>: <span class="string">"config.gradle"</span>
+  <span class="keyword">buildscript</span> {
+      <span class="keyword">repositories</span> {
+        jcenter()
+      }
+      <span class="keyword">dependencies</span> {
+        <span class="keyword">classpath</span> <span class="string">'com.android.tools.build:gradle:2.0.0'</span>
+        <span class="comment">// <span class="doctag">NOTE:</span> Do not place your application dependencies here; they belong</span>
+        <span class="comment">// in the individual module build.gradle files</span>
+      }
+    }       
+
+    <span class="keyword">allprojects</span> {
+      <span class="keyword">repositories</span> {
+        jcenter()
+      }
+    }       
+</code></pre><p>然后你使用起来就简单多了</p>
+<pre><code><span class="keyword">def</span> config = rootProject.ext.android <span class="comment">// 配置</span>
+<span class="keyword">def</span> dep = rootProject.ext.<span class="keyword">dependencies</span> <span class="comment">// 依赖</span>
+useLibrary <span class="string">'org.apache.http.legacy'</span> <span class="comment">// 如果你是api23的话，在用到apache的http库时候，记得加上这个，不然混淆时候因为urlConnection的升级导致异常</span>
+
+compileSdkVersion config.compileSdkVersion
+buildToolsVersion config.buildToolsVersion
+
+defaultConfig {
+  applicationId config.applicationId
+  minSdkVersion config.minSdkVersion
+  targetSdkVersion config.targetSdkVersion
+  versionCode config.versionCode
+  versionName config.versionName
+  manifestPlaceholders = [UMENG_CHANNEL_VALUE: <span class="string">"open"</span>]
+}
+
+<span class="keyword">dependencies</span> {
+  <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])
+  <span class="keyword">compile</span> dep.design
+  <span class="keyword">compile</span> dep.retrofit
+  <span class="keyword">compile</span> dep.okhttp
+}
+</code></pre><p>那么这样用的好处是什么呢？</p>
+<ul>
+<li>如果你有多个Module都需要依赖design包的话，design包一升级导致了多个module需要改版本，你就可能同时引入了多个依赖导致apk增大</li>
+<li>统一管理versionCode和versionName</li>
+<li>看起来是不是更简洁</li>
+</ul>
+<p><img src="http://ww3.sinaimg.cn/large/0060lm7Tgw1f2t8n81eusj30h40kemzj.jpg" alt=""></p>
+<h4 id="signingConfigs">signingConfigs</h4><pre><code><span class="function"><span class="keyword">def</span> <span class="title">keystore</span> = <span class="title">file</span><span class="params">(<span class="string">'keystore/yat3s.jks'</span>)</span></span>
+signingConfigs {
+    release {
+        keyAlias <span class="constant">KEY_ALIAS</span>
+        keyPassword <span class="constant">KEY_PASSWORD</span>
+        storePassword <span class="constant">KEYSTORE_PASSWORD</span>
+        storeFile keystore
+    }
+}    
+</code></pre><ul>
+<li>在非资源定义下引用gradle.properties可直接输入properties的key</li>
+<li>如果你要公开你的源码记得把你的keystore ignore掉，私有库无视</li>
+</ul>
+<h4 id="packagingOptions">packagingOptions</h4><pre><code>packagingOptions {
+  <span class="keyword">exclude</span> <span class="string">'META-INF/LICENSE'</span>
+  <span class="keyword">exclude</span>(<span class="string">'META-INF/LICENSE.txt'</span>)
+  <span class="keyword">exclude</span>(<span class="string">'META-INF/NOTICE.txt'</span>)
+  <span class="keyword">exclude</span> <span class="string">'META-INF/NOTICE'</span>
+  <span class="keyword">exclude</span> <span class="string">'META-INF/DEPENDENCIES'</span>
+  <span class="comment">// umeng推送的jar包含有的okio库跟okhttp的okio库冲突</span>
+  <span class="keyword">exclude</span> <span class="string">'META-INF/maven/com.squareup.okio/okio/pom.xml'</span>
+  <span class="keyword">exclude</span> <span class="string">'META-INF/maven/com.squareup.okio/okio/pom.properties'</span>
+}
+</code></pre><ul>
+<li>主要处理第三方库在导入时候的一些声明文件冲突，Option this</li>
+</ul>
+<h4 id="compileOptions_{">compileOptions {</h4><pre><code><span class="component">compileOptions {
+  sourceCompatibility JavaVersion<span class="string">.VERSION_1_7</span>
+  targetCompatibility JavaVersion<span class="string">.VERSION_1_7</span>
+}</span>
+</code></pre><ul>
+<li>个人觉得如果你不用lambda表达式的话，可以用java1.7，因为1.8还不是完美的支持Android</li>
+</ul>
+<h4 id="lintOptions">lintOptions</h4><pre><code> lintOptions {
+    <span class="keyword">disable</span> <span class="string">"InvalidPackage"</span>
+    <span class="keyword">disable</span> <span class="string">"MissingTranslation"</span> <span class="comment">// 禁用中英文string.xml的强制lint</span>
+    lintConfig <span class="keyword">file</span>(<span class="string">"lint.xml"</span>)
+}
+</code></pre><ul>
+<li>lint可以帮你查找到很多warning和error，帮你优化很多问题，如果不了解可以到官网<a href="http://developer.android.com/intl/zh-cn/tools/help/lint.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/tools/help/lint.html</a> look一下</li>
+</ul>
+<h4 id="打包管理">打包管理</h4><pre><code>def getDate() {
+    return new Date().format(<span class="string">"yyyy-MM-dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>)) // 注意时区
+}     
+
+// 获取当前git的Revision
+def getRevision() {
+    return ext.hash = <span class="string">'git rev-parse --short HEAD'</span>.execute().text.trim()
+}
+productFlavors {
+   rc_open {}
+   rc_36<span class="number">0</span> {}
+   rc_yingyongbao {}
+   rc_baidu {}
+   rc_91 {}
+   rc_wandoujia {}
+   rc_anzhuo {}
+   rc_xiaomi {}
+   rc_meizu {}
+   rc_oppo {}
+   rc_huawei {}
+   rc_weibo {}
+   rc_dev {}
+   }
+productFlavors.all { flavor -&gt;
+    // 这里只是方便友盟统计每个渠道的数据
+    flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+ }
+
+  // 修改打包后APK的文件名
+  applicationVariants.all { variant -&gt;
+   variant.outputs.each { output -&gt;
+       def oldFile = output.outputFile
+       if (variant.buildType.name.equals(<span class="string">'release'</span>)) {
+           // 输出apk名称为yat3s_v1.<span class="number">0_2016</span>-<span class="number">04</span>-<span class="number">12_</span>yingyongbao_a23f2e1.apk
+           def releaseApkName = <span class="string">'yat3s-v'</span> + defaultConfig.versionName + <span class="string">'_'</span> + getDate() + <span class="string">'_'</span> + variant.productFlavors[<span class="number">0</span>].name + <span class="string">"_"</span> + getRevision() + <span class="string">'.apk'</span>
+           output.outputFile = new File(oldFile.parent, releaseApkName)
+       }
+       if (variant.buildType.name.equals(<span class="string">'debug'</span>)) {
+          // Do nothing
+       }
+   }
+ }
+</code></pre><ul>
+<li>多渠道打包用的是Gradle的productFlavors</li>
+<li>git的Revision 方便你管理你的release和tag</li>
+<li>打包的时候可以用Jenkins来自动Build你的包</li>
+</ul>
+<h2 id="Speed_Gradle">Speed Gradle</h2><p>我们都知道编译项目时候是依赖gradle的，gradle的构建速度决定了你的工作效率，上面零散的提到几点，下面总结一下：</p>
+<blockquote>
+<ul>
+<li>第一个大招 <strong>升级Android studio 2.0 并且使用最新版的gradle 2.0 使用Instant Run</strong></li>
+<li>在你确保你的混淆没问题时候在debug模式下关闭所有混淆minifyEnabled false, shrinkResources false</li>
+<li>尽可能的让你的所有module的依赖库版本一致。</li>
+<li>在允许的情况下，在android studio的配置中，开启offline模式，在构建项目时候在命令后面加上–daemon –parallel –offline即可</li>
+<li>在添加依赖的时候尽量明确版本号，省去gradle查找最新版的时间，不要compile ‘com.facebook.fresco:fresco:latest’ 或compile ‘com.facebook.fresco:fresco:1.+’，</li>
+<li>开启守护线程并行编译，在gradle.properties中添加<br>org.gradle.parallel=true<br>org.gradle.daemon=true<br>org.gradle.jvmargs=-Xms256m -Xmx1024m</li>
+<li>在gradle中def方法的时候尽量在debug情况下减少耗时操作或者不操作，比如：<pre><code><span class="function"><span class="keyword">def</span> <span class="title">getRevision</span><span class="params">()</span> {</span>
+  <span class="keyword">if</span> (!<span class="constant">System</span>.getenv(<span class="string">'CI_BUILD'</span>)) {
+    <span class="keyword">return</span> <span class="number">0</span>
+  }
+  <span class="keyword">return</span> ext.hash = <span class="string">'git rev-parse --short HEAD'</span>.execute().text.trim()
+}
+</code></pre></li>
+</ul>
+</blockquote>
+<h2 id="写在最后">写在最后</h2><p>如果那里写的不对或者有更好的方式，欢迎指出批评，感恩。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/15/android-MVP-retrofit/" rel="next" title="Android MVP模式架构分析">
+                <i class="fa fa-chevron-left"></i> Android MVP模式架构分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/08/gradle-config-elegant/"
+           data-title="Android常用的Gradle配置和加速编译" data-url="http://yoursite.com/2016/04/08/gradle-config-elegant/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Yat3s" />
+          <p class="site-author-name" itemprop="name">Yat3s</p>
+          <p class="site-description motion-element" itemprop="description">一只爱玩的程序汪。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Yat3s" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/104645643" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.facebook.com/Hawkoyates" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> Facebook
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Why_Gradle"><span class="nav-number">1.</span> <span class="nav-text">Why Gradle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How_Gradle"><span class="nav-number">1.1.</span> <span class="nav-text">How Gradle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#buildTypes"><span class="nav-number">1.1.1.</span> <span class="nav-text">buildTypes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#defaultConfig"><span class="nav-number">1.1.2.</span> <span class="nav-text">defaultConfig</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#signingConfigs"><span class="nav-number">1.1.3.</span> <span class="nav-text">signingConfigs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#packagingOptions"><span class="nav-number">1.1.4.</span> <span class="nav-text">packagingOptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compileOptions_{"><span class="nav-number">1.1.5.</span> <span class="nav-text">compileOptions {</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lintOptions"><span class="nav-number">1.1.6.</span> <span class="nav-text">lintOptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包管理"><span class="nav-number">1.1.7.</span> <span class="nav-text">打包管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speed_Gradle"><span class="nav-number">2.</span> <span class="nav-text">Speed Gradle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">3.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yat3s</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Yat3s"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+
+</body>
+</html>
