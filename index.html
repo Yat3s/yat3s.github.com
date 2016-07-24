@@ -216,6 +216,120 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/25/Jcenter/" itemprop="url">
+                  Android一行命令上传你的项目到Jcenter/Maven
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-07-25T01:28:23+08:00" content="2016-07-25">
+              2016-07-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/Jcenter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/Jcenter/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="写在前面">写在前面</h2><p>最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。</p>
+<h2 id="准备">准备</h2><p>先在<a href="https://bintray.com/" target="_blank" rel="external">https://bintray.com</a>注册一个账号<br>然后在<a href="https://bintray.com/profile/edit" target="_blank" rel="external">https://bintray.com/profile/edit</a>下点击apikey，记录下自己的apikey和username，看下图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-a1e2d615ffa092a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册获取信息"></p>
+<h2 id="开始">开始</h2><p>到这里其实你已经完成了50%的工作量了是不是很简单，接下来就是运行脚本填写配置信息了。<br>在我的github(<a href="https://github.com/Yat3s/bintrayUpload" target="_blank" rel="external">https://github.com/Yat3s/bintrayUpload</a>)<br>下载<strong>uploadToBintray.sh</strong>，把它放在你的module目录下，例如CustomView/app/uploadToBintray.sh<br>然后打开你的终端或者android studio自带的终端，切换到你的app目录下 ，cd app<br>最后运行./uploadToBintray.sh，然后你按照提示填写就行了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-4d2c0be8f97920cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载脚本"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-c396d94a0507388e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-583726c9be42926b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传成功"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-c0cfd09eec5e9634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传至Jcenter"></p>
+<p>大功告成了，你可能会遇到一些问题。</p>
+<h2 id="可能遇到的问题">可能遇到的问题</h2><ul>
+<li>如果权限禁止的话，你需要运行chmod +x uploadToBintray.sh</li>
+<li>如果你要上传一个库的话，你的项目是依赖是apply plugin: ‘com.android.library’ 而不是apply plugin: ‘com.android.application’</li>
+<li>第一次运行需要下载几个依赖库可能会占用时间</li>
+<li>如果最后一步卡在97%请检查你是否开启了proxy，检查你的gradle.properties下是否有proxy的信息，将之删除</li>
+<li>上传maven成功后你需要打开你的bintray，然后将你的项目add to jcenter，一般在1小时候左右就会审核成功</li>
+<li>该脚本在Mac OS X运行正常，不确保在linux上运行无误。</li>
+<li>如果你想修改你的项目名（com.android.library.项目名），你需要修改你的module名后重新上传</li>
+<li>有其他问题欢迎关注<a href="https://github.com/Yat3s" target="_blank" rel="external">我的Github</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/08/gradle-config-elegant/" itemprop="url">
                   Android常用的Gradle配置和加速编译
                 </a>
@@ -1274,7 +1388,7 @@ productFlavors.all { flavor -&gt;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>

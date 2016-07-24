@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MVP,架构," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -57,26 +57,30 @@
 
 
 
-<meta name="description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+<meta name="description" content="写在前面最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。
+准备先在https://bintray.com注册一个账号然后在https://bintray.com/profile/edit下点击apikey，记录下自己的apikey和username，看下图。
 
-公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
+开始到这里其实你已">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android MVP模式架构分析">
-<meta property="og:url" content="http://yoursite.com/2015/10/15/android-MVP-retrofit/index.html">
+<meta property="og:title" content="Android一行命令上传你的项目到Jcenter/Maven">
+<meta property="og:url" content="http://yoursite.com/2016/07/25/Jcenter/index.html">
 <meta property="og:site_name" content="Yat3s">
-<meta property="og:description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+<meta property="og:description" content="写在前面最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。
+准备先在https://bintray.com注册一个账号然后在https://bintray.com/profile/edit下点击apikey，记录下自己的apikey和username，看下图。
 
-公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
-<meta property="og:image" content="http://img.blog.csdn.net/20150622212916054">
-<meta property="og:image" content="http://i11.tietuku.com/a968df849545efd3.jpg">
-<meta property="og:image" content="http://i11.tietuku.com/1a16f0bd4d423965.jpg">
-<meta property="og:image" content="http://i11.tietuku.com/0609b28536d3fb0a.jpg">
-<meta property="og:updated_time" content="2016-03-21T09:03:04.000Z">
+开始到这里其实你已">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723733-a1e2d615ffa092a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723733-4d2c0be8f97920cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723733-c396d94a0507388e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723733-583726c9be42926b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1723733-c0cfd09eec5e9634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-07-24T17:29:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android MVP模式架构分析">
-<meta name="twitter:description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
+<meta name="twitter:title" content="Android一行命令上传你的项目到Jcenter/Maven">
+<meta name="twitter:description" content="写在前面最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。
+准备先在https://bintray.com注册一个账号然后在https://bintray.com/profile/edit下点击apikey，记录下自己的apikey和username，看下图。
 
-公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
+开始到这里其实你已">
 
 
 
@@ -94,7 +98,7 @@
   };
 </script>
 
-  <title> Android MVP模式架构分析 | Yat3s </title>
+  <title> Android一行命令上传你的项目到Jcenter/Maven | Yat3s </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -224,7 +228,7 @@
             
             
               
-                Android MVP模式架构分析
+                Android一行命令上传你的项目到Jcenter/Maven
               
             
           </h1>
@@ -236,8 +240,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
-              2015-10-15
+            <time itemprop="dateCreated" datetime="2016-07-25T01:28:23+08:00" content="2016-07-25">
+              2016-07-25
             </time>
           </span>
 
@@ -247,8 +251,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
+                <a href="/2016/07/25/Jcenter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/Jcenter/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -270,19 +274,25 @@
       
 
       
-        <blockquote>
-<p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
-</blockquote>
-<p>公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
-<p><img src="http://i11.tietuku.com/a968df849545efd3.jpg" alt=""><br>可以看到MVP模式中有个Presenter层</p>
-<p><img src="http://i11.tietuku.com/1a16f0bd4d423965.jpg" alt=""></p>
-<h2 id="MVP有什么优势">MVP有什么优势</h2><p>MVP模式可以让数据跟界面完全分离，View跟Model完全的解耦，方便我们做单元测试，同时也给activity进行减压</p>
-<p><img src="http://i11.tietuku.com/0609b28536d3fb0a.jpg" alt=""></p>
-<h2 id="Presenter">Presenter</h2><p>presenter层主要是处理一些数据逻辑，完成Model跟view层的交互，但是model跟view是无法单独交互的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserPresenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    FeedActivity mView;</span><br><span class="line">    FeedService feedService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserPresenter</span><span class="params">(FeedActivity mView, FeedService feedService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mView = mView;</span><br><span class="line">        <span class="keyword">this</span>.feedService = feedService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadFeeds</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setId(<span class="string">"561103121400006a6496b6c6"</span>);</span><br><span class="line">        user.setUsed_ids(<span class="keyword">new</span> ArrayList&lt;String&gt;());</span><br><span class="line">        feedService.getApi().getFeeds(user, <span class="keyword">new</span> Callback&lt;BaseModel&lt;List&lt;Feed&gt;&gt;&gt;() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">success</span><span class="params">(BaseModel&lt;List&lt;Feed&gt;&gt; listBaseModel, Response response)</span> </span>&#123;</span><br><span class="line">                mView.display(listBaseModel.getData());</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">failure</span><span class="params">(RetrofitError error)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="View">View</h2><p>这里主要是activity，fragment（如果对fragment的生命周期不太了解就慎用），dialog等界面元素<br>只是单纯的处理界面的交互</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeedActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</span><br><span class="line">    <span class="annotation">@Bind</span>(R.id.recyclerView)</span><br><span class="line">    RecyclerView feedRv;</span><br><span class="line">    <span class="keyword">private</span> FeedAdapter feedAdapter;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Feed&gt; feeds;</span><br><span class="line">    <span class="keyword">private</span> UserPresenter userPresenter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_feeds);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        initData();</span><br><span class="line">        getData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);</span><br><span class="line">        feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, <span class="keyword">null</span>, <span class="number">3</span>, <span class="number">5</span>));</span><br><span class="line">        feedRv.setAdapter(feedAdapter);</span><br><span class="line"></span><br><span class="line">        userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userPresenter.loadFeeds();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.feeds.addAll(feeds);</span><br><span class="line">        feedAdapter.notifyDataSetChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
+        <h2 id="写在前面">写在前面</h2><p>最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。</p>
+<h2 id="准备">准备</h2><p>先在<a href="https://bintray.com/" target="_blank" rel="external">https://bintray.com</a>注册一个账号<br>然后在<a href="https://bintray.com/profile/edit" target="_blank" rel="external">https://bintray.com/profile/edit</a>下点击apikey，记录下自己的apikey和username，看下图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-a1e2d615ffa092a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册获取信息"></p>
+<h2 id="开始">开始</h2><p>到这里其实你已经完成了50%的工作量了是不是很简单，接下来就是运行脚本填写配置信息了。<br>在我的github(<a href="https://github.com/Yat3s/bintrayUpload" target="_blank" rel="external">https://github.com/Yat3s/bintrayUpload</a>)<br>下载<strong>uploadToBintray.sh</strong>，把它放在你的module目录下，例如CustomView/app/uploadToBintray.sh<br>然后打开你的终端或者android studio自带的终端，切换到你的app目录下 ，cd app<br>最后运行./uploadToBintray.sh，然后你按照提示填写就行了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-4d2c0be8f97920cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="下载脚本"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-c396d94a0507388e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="运行"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-583726c9be42926b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传成功"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1723733-c0cfd09eec5e9634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="上传至Jcenter"></p>
+<p>大功告成了，你可能会遇到一些问题。</p>
+<h2 id="可能遇到的问题">可能遇到的问题</h2><ul>
+<li>如果权限禁止的话，你需要运行chmod +x uploadToBintray.sh</li>
+<li>如果你要上传一个库的话，你的项目是依赖是apply plugin: ‘com.android.library’ 而不是apply plugin: ‘com.android.application’</li>
+<li>第一次运行需要下载几个依赖库可能会占用时间</li>
+<li>如果最后一步卡在97%请检查你是否开启了proxy，检查你的gradle.properties下是否有proxy的信息，将之删除</li>
+<li>上传maven成功后你需要打开你的bintray，然后将你的项目add to jcenter，一般在1小时候左右就会审核成功</li>
+<li>该脚本在Mac OS X运行正常，不确保在linux上运行无误。</li>
+<li>如果你想修改你的项目名（com.android.library.项目名），你需要修改你的module名后重新上传</li>
+<li>有其他问题欢迎关注<a href="https://github.com/Yat3s" target="_blank" rel="external">我的Github</a></li>
+</ul>
 
       
     </div>
@@ -295,30 +305,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/MVP/" rel="tag">#MVP</a>
-          
-            <a href="/tags/架构/" rel="tag">#架构</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/01/interview/" rel="next" title="面试有感">
-                <i class="fa fa-chevron-left"></i> 面试有感
+              <a href="/2016/04/08/gradle-config-elegant/" rel="next" title="Android常用的Gradle配置和加速编译">
+                <i class="fa fa-chevron-left"></i> Android常用的Gradle配置和加速编译
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/08/gradle-config-elegant/" rel="prev" title="Android常用的Gradle配置和加速编译">
-                Android常用的Gradle配置和加速编译 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -344,8 +342,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/15/android-MVP-retrofit/"
-           data-title="Android MVP模式架构分析" data-url="http://yoursite.com/2015/10/15/android-MVP-retrofit/">
+      <div class="ds-thread" data-thread-key="2016/07/25/Jcenter/"
+           data-title="Android一行命令上传你的项目到Jcenter/Maven" data-url="http://yoursite.com/2016/07/25/Jcenter/">
       </div>
     
   </div>
@@ -467,7 +465,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP有什么优势"><span class="nav-number">1.</span> <span class="nav-text">MVP有什么优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presenter"><span class="nav-number">2.</span> <span class="nav-text">Presenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">3.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">3.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可能遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">可能遇到的问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
