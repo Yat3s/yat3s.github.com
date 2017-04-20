@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>异步图片加载fresco v/s universal image loader (uil) | HACKGROUND SPACE</title>
+  <title>异步图片加载fresco v/s universal image loader (uil) | HACKGROUND</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="UILfresco图片加载" />
@@ -15,7 +15,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="异步图片加载Fresco v/s Universal Image Loader (UIL)">
 <meta property="og:url" content="http://yoursite.com/2015/09/17/Fresco-v-s-Universal-ImageLoader/index.html">
-<meta property="og:site_name" content="HACKGROUND SPACE">
+<meta property="og:site_name" content="HACKGROUND">
 <meta property="og:description" content="在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做">
 <meta property="og:image" content="https://github.com/nostra13/Android-Universal-Image-Loader/raw/master/wiki/UIL_Flow.png">
 <meta property="og:image" content="http://i.stack.imgur.com/TdLCr.png">
@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="异步图片加载Fresco v/s Universal Image Loader (UIL)">
 <meta name="twitter:description" content="在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做">
   
-    <link rel="alternate" href="/atom.xml" title="HACKGROUND SPACE" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="HACKGROUND" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
@@ -91,15 +91,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">首頁</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">彙整</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">分類</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">標籤</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">關于</a> </li>
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -111,7 +111,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="請輸入關鍵詞..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -123,11 +123,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '頁面',
-            CATEGORIES: '分類',
-            TAGS: '標籤',
-            UNTITLED: '(無標題)',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -290,7 +290,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目錄</strong>
+    <strong class="toc-title">Contents</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官方_Official"><span class="nav-number">1.</span> <span class="nav-text">官方 Official</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresco"><span class="nav-number">1.1.</span> <span class="nav-text">Fresco</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIL"><span class="nav-number">1.2.</span> <span class="nav-text">UIL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fresco-1"><span class="nav-number">2.1.</span> <span class="nav-text">Fresco</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIL-1"><span class="nav-number">2.2.</span> <span class="nav-text">UIL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题总结"><span class="nav-number">3.</span> <span class="nav-text">问题总结</span></a></li></ol>
     
@@ -306,12 +306,12 @@
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 HACKGROUND SPACE All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 HACKGROUND All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> 訪客數 : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> 訪問量 : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>
@@ -450,7 +450,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            HACKGROUND SPACE
+            HACKGROUND
           </div>
           <div class="panel-body">
             Copyright © 2017 Yat3s All Rights Reserved.

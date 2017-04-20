@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>android mvp模式架构分析 | HACKGROUND SPACE</title>
+  <title>android mvp模式架构分析 | HACKGROUND</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="MVP架构" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android MVP模式架构分析">
 <meta property="og:url" content="http://yoursite.com/2015/10/15/android-MVP-retrofit/index.html">
-<meta property="og:site_name" content="HACKGROUND SPACE">
+<meta property="og:site_name" content="HACKGROUND">
 <meta property="og:description" content="开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。
 
 公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
@@ -32,7 +32,7 @@
 
 公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了">
   
-    <link rel="alternate" href="/atom.xml" title="HACKGROUND SPACE" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="HACKGROUND" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
@@ -99,15 +99,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">首頁</a> </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">彙整</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">分類</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">標籤</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">關于</a> </li>
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -119,7 +119,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="請輸入關鍵詞..." />
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -131,11 +131,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '頁面',
-            CATEGORIES: '分類',
-            TAGS: '標籤',
-            UNTITLED: '(無標題)',
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -259,7 +259,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目錄</strong>
+    <strong class="toc-title">Contents</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP有什么优势"><span class="nav-number">1.</span> <span class="nav-text">MVP有什么优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Presenter"><span class="nav-number">2.</span> <span class="nav-text">Presenter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">3.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">4.</span> <span class="nav-text">Model</span></a></li></ol>
     
@@ -275,12 +275,12 @@
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 HACKGROUND SPACE All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 HACKGROUND All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> 訪客數 : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> 訪問量 : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>
@@ -419,7 +419,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            HACKGROUND SPACE
+            HACKGROUND
           </div>
           <div class="panel-body">
             Copyright © 2017 Yat3s All Rights Reserved.
