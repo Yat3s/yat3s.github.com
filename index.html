@@ -1,63 +1,15 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
-
-
-
-
-
-
-<meta name="description" content="一只爱玩的程序汪。">
+  <meta charset="utf-8">
+  
+  <title>Yat3s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="一只爱玩的程序汪。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yat3s">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -66,207 +18,180 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yat3s">
 <meta name="twitter:description" content="一只爱玩的程序汪。">
+  
+    <link rel="alternate" href="/atom.xml" title="Yat3s" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  <script src="/js/jquery-3.1.1.min.js" type="text/javascript"></script>
 
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
 
-  <title> Yat3s </title>
+  
+
+  
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
-
-  
 
 
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?e3d6bf667a0626a005ea4abdece0bab1";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
+  <body>
 
 
   
+    <header id="header">
+
   
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+    <script>
+        var imgUrls = "css/images/home-bg.jpg,css/images/sample.jpg,http://t.cn/RMbvEza".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
+        } else {
+          document.getElementById("intrologo").style.backgroundImage='url(/' + imgUrls[random] + ')';
+        }
+    </script>
+  
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      
+    </script>
     
-  
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Yat3s</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Yat3s</a></h1>
+            <h3>一只爱玩的程序汪。</h3>
+            <h5>Yat3s</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
   </div>
-  <p class="site-subtitle"></p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+  <!-- 自适应主页背景大图 -->
+  
+    <script>
+        var img = new Image();
+        var intrologodiv = document.getElementById("intrologo");
+        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
+        img.onload=function(){
+          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
+            intrologodiv.style.backgroundSize = "100% auto";
+          } else {
+            intrologodiv.style.backgroundSize = "auto 100%";
+          }
+        };
+    </script>
+ 
 
-<nav class="site-nav">
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
   
 
-  
-    <ul id="menu" class="menu">
-      
+  <div class="intro-navigate">
+      <p class="navigater-list">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首頁
-          </a>
-        </li>
-      
+          <a id="beautifont" class="main-nav-link" href="/">首頁</a>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            歸檔
-          </a>
-        </li>
-      
+          <a id="beautifont" class="main-nav-link" href="/archives">彙整</a>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            標籤
-          </a>
-        </li>
-      
+          <a id="beautifont" class="main-nav-link" href="/categories">分類</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">標籤</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">關于</a>
+        
+      </p>
+  </div>
 
-      
-    </ul>
+</header>
   
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+  <div id="container">
+    <div id="wrap">
+      
             
-  <section id="posts" class="posts-expand">
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="android-Jcenter"  class="article article-type-android" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/25/Jcenter/" itemprop="url">
-                  Android一行命令上传你的项目到Jcenter/Maven
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/07/25/Jcenter/">Android一行命令上传你的项目到Jcenter/Maven</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-07-25T01:28:23+08:00" content="2016-07-25">
-              2016-07-25
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/25/Jcenter/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/Jcenter/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/07/25/Jcenter/" class="article-date">
+	  <time datetime="2016-07-24T17:28:23.000Z" itemprop="datePublished">2016-07-25</time>
+	</a>
 
       
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
-          
-            <h2 id="写在前面">写在前面</h2><p>最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。</p>
+        <h2 id="写在前面">写在前面</h2><p>最近挺多同学开始了最近开源之旅，在github上写了很多好的代码库但是发现上传到Jcenter的话比较的折腾，于是就写了个简单的脚步来一键上传你的项目到JCenter。</p>
 <h2 id="准备">准备</h2><p>先在<a href="https://bintray.com/" target="_blank" rel="external">https://bintray.com</a>注册一个账号<br>然后在<a href="https://bintray.com/profile/edit" target="_blank" rel="external">https://bintray.com/profile/edit</a>下点击apikey，记录下自己的apikey和username，看下图。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1723733-a1e2d615ffa092a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="注册获取信息"></p>
 <h2 id="开始">开始</h2><p>到这里其实你已经完成了50%的工作量了是不是很简单，接下来就是运行脚本填写配置信息了。<br>在我的github(<a href="https://github.com/Yat3s/bintrayUpload" target="_blank" rel="external">https://github.com/Yat3s/bintrayUpload</a>)<br>下载<strong>uploadToBintray.sh</strong>，把它放在你的module目录下，例如CustomView/app/uploadToBintray.sh<br>然后打开你的终端或者android studio自带的终端，切换到你的app目录下 ，cd app<br>最后运行./uploadToBintray.sh，然后你按照提示填写就行了。</p>
@@ -286,120 +211,46 @@
 <li>有其他问题欢迎关注<a href="https://github.com/Yat3s" target="_blank" rel="external">我的Github</a></li>
 </ul>
 
-          
-        
       
     </div>
-
-    <div>
+    <footer class="article-footer">
       
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-gradle-config-elegant"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/08/gradle-config-elegant/" itemprop="url">
-                  Android常用的Gradle配置和加速编译
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/04/08/gradle-config-elegant/">Android常用的Gradle配置和加速编译</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2016-04-08T18:56:40+08:00" content="2016-04-08">
-              2016-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Gradle/" itemprop="url" rel="index">
-                    <span itemprop="name">Gradle</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/08/gradle-config-elegant/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/gradle-config-elegant/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/04/08/gradle-config-elegant/" class="article-date">
+	  <time datetime="2016-04-08T10:56:40.000Z" itemprop="datePublished">2016-04-08</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/Gradle/">Gradle</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          
-            <h2 id="Why_Gradle">Why Gradle</h2><blockquote>
+        <h2 id="Why_Gradle">Why Gradle</h2><blockquote>
 <p>Gradle makes the impossible possible, the possible easy and the easy elegant.</p>
 </blockquote>
 <p>在Android开发中经常会用Gradle来构建项目，Gradle能很方便的项目的版本集成和打包，虽Gradle官方已经给出很详细的文档了，但还是有必要抽离出一些常用的配置。<br>整个Android项目的编译依赖于Gradle的编译，虽然前几天发布了Android 2.0 stable，拥有了Instant Run强大的功能，但是有“改一行布局代码Run一次”习惯的同学有必要知道如何加速Gradle的编译。<br>主要介绍一下：</p>
@@ -641,101 +492,44 @@ productFlavors.all { flavor -&gt;
 </blockquote>
 <h2 id="写在最后">写在最后</h2><p>如果那里写的不对或者有更好的方式，欢迎指出批评，感恩。</p>
 
-          
-        
       
     </div>
-
-    <div>
+    <footer class="article-footer">
       
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-android-MVP-retrofit"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/15/android-MVP-retrofit/" itemprop="url">
-                  Android MVP模式架构分析
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/10/15/android-MVP-retrofit/">Android MVP模式架构分析</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T17:49:52+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/15/android-MVP-retrofit/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/android-MVP-retrofit/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2015/10/15/android-MVP-retrofit/" class="article-date">
+	  <time datetime="2015-10-15T09:49:52.000Z" itemprop="datePublished">2015-10-15</time>
+	</a>
 
       
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-
-      
-        
-          
-            <blockquote>
+        <blockquote>
 <p>开始新的项目，当然前期工作需要做足，磨刀不误砍柴工。</p>
 </blockquote>
 <p>公司已经把iOS版本开发出来，这几天都是忙着看需求然后架构android版本，刚好研究了一下android架构的MVP模式觉得不错，所以想记录分享。<br>MVC模式大家都比较了解，先看一张图看看MVC跟MVP的区别<br><img src="http://img.blog.csdn.net/20150622212916054" alt=""><br>刚初学的时候接触MVC模式，一直强行把activity来充当Controller，搞得activity代码上千行（因为xml布局太懒惰了），不方便后期维护，实际activity只是view层<br>实际在android开发中完整的用MVC模式是有点吃力的，你需要单独写controller层来处理逻辑，当然还有MVVM模式，model-view-viewmodel，这需要依赖数据绑定，没有细细研究。那我们来看看MVP模式吧</p>
@@ -749,236 +543,90 @@ productFlavors.all { flavor -&gt;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FeedActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</span><br><span class="line">    <span class="annotation">@Bind</span>(R.id.recyclerView)</span><br><span class="line">    RecyclerView feedRv;</span><br><span class="line">    <span class="keyword">private</span> FeedAdapter feedAdapter;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Feed&gt; feeds;</span><br><span class="line">    <span class="keyword">private</span> UserPresenter userPresenter;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_feeds);</span><br><span class="line">        ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">        initData();</span><br><span class="line">        getData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        feeds = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        feedAdapter = <span class="keyword">new</span> FeedAdapter(<span class="keyword">this</span>,feeds);</span><br><span class="line">        feedRv.setLayoutManager(<span class="keyword">new</span> StaggeredGridLayoutManager(<span class="keyword">this</span>, <span class="keyword">null</span>, <span class="number">3</span>, <span class="number">5</span>));</span><br><span class="line">        feedRv.setAdapter(feedAdapter);</span><br><span class="line"></span><br><span class="line">        userPresenter = <span class="keyword">new</span> UserPresenter(<span class="keyword">this</span>,FeedService.getInstance());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userPresenter.loadFeeds();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">(List&lt;Feed&gt; feeds)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.feeds.addAll(feeds);</span><br><span class="line">        feedAdapter.notifyDataSetChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Model">Model</h2><p>这里主要是一些entity,bean等，这个是必须的所以就不细究了。</p>
 
-          
-        
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVP/">MVP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/架构/">架构</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-interview"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/01/interview/" itemprop="url">
-                  面试有感
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/10/01/interview/">面试有感</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-10-01T17:13:15+08:00" content="2015-10-01">
-              2015-10-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/心情/" itemprop="url" rel="index">
-                    <span itemprop="name">心情</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/01/interview/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/interview/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2015/10/01/interview/" class="article-date">
+	  <time datetime="2015-10-01T09:13:15.000Z" itemprop="datePublished">2015-10-01</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/心情/">心情</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          
-            <pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
+        <pre><code>想着很多路都需要自己去走，不应该驻足太久，背起行囊。
 </code></pre><p>9月26日把原来的工作辞了，抱着屌丝逆序的梦想打算奔赴京城，投了十几个公司，最后面试的有4家， 360，猎豹，中文在线,还有个初创公司。<br>9.28 火车转飞机真够折腾了，一路上的天气逆转，路上好巧也遇到同行去北京的一对夫妇，在广州工作，问了一下广州的互联网情况，结果是我不太想继续聊下去了。<br>北上，思绪跟天气都渐渐变冷下来，晚上找到一家靠近360的小旅馆，满心期待又不安的度过了一晚上。<br>上午。下起了小雨，吃早餐的心情就全无了，街边买了把雨伞，径直的往360奔去。<br>等候了20分钟，一副满脸刻着程序员的辛酸的一个大叔喊了我名字，拉到一个封闭的小房间，然后也没有自我介绍，只是简单的问了我的大四情况（因为没课才出来找实习的），后来叫我写一个二分查找的代码，当时想了几分钟写出来了，后面给了我一个链表问题，敢情我是对数据结构空洞的很，勉强的hack了一下解决方法，面试对我的答案很不满意，然后又问了我对android第三方框架是如何实现的，当时也没有研究的比较深入，就是简单的回答一下，结果也不是很理想。<br>撑着雨伞走在冷冷的街，也不知道哪边反向是对的，一直在反思什么，或许大学确实有很多遗憾吧。<br>下午。1.50准时抵达猎豹所在大厦，上了电梯，有一个貌似保安一样的人员守在外面，问我是不是面试，然后叫我拨打墙上的面试接待人员的电话，还没拨号，就有一个甜美的女生过来问我是不是面试，后来把我带进到办公室里面，里面确实很大很多人，不过给我的感觉似乎并没有很好，每个人都用心的做着事情，少了点什么味道。<br>坐下来，旁边还有2个也是面试android的人，看起来比我大。拿到卷子，简单的翻阅了一下，确实很简单，二十多道题统统给解决了，当时自信心也上升了许多。<br>后来甜美女生带我到楼下跟面试官聊。来了一个25岁左右的男生，坐下来叫我自我介绍一下，当时确实有点紧张，还好大学这样的场景经历的多，硬是把声音压到平稳，一面问了一些android基础问题，也是比较简单，后来一面面试官给我的反馈就是java基础不怎么好，也是很无奈，好好恶补java基础吧。二面来了一个成熟一点的大叔，我很担心他会不会给我来个数据结构或者难的算法，还好只是跟我谈谈项目以及我的个人性格，问了很多我平时休息时候做什么，有什么爱好等等，终于心里平复了许多，最后他说leader不在北京，叫我等leader电话，我觉得希望还是挺大的，不想了，现在结果也不知道。<br>第二天。好像贪睡的我还是起来了，赶着地铁来到朝外soho，比较高大上的地方，都是写字楼，很巧在上电梯的时候就遇到了跟我约面试的Anita，是一个人很好的姐姐，也很漂亮哦。<br>北京的上班是10点，等到10点20左右，来了一个跟我室友长得很像的跟我聊，他说他是做IOS的，当时我心里就紧张全无了，后来拿着我的简历叫我介绍一下上面写的框架，我很详细的介绍了每一个框架的使用跟功能，因为都用的比较多，所以很容易的答出来了，后面给我一个二叉树问题，数据结构我比较头疼，不过在指引下我还是做出来了，后面叫我写一个归并排序的代码，也算是写出来吧（提醒的比较多),然后是公司的CTO跟我面试，一看就是个大牛，聊得很少跟android相关，感觉是2个程序员在闲聊，确实这样的面试确实很棒，没有一点的心理负担，整场面试3个半小时，后面还请我吃了中饭简直赞。<br>后来Anita约我到星巴克聊offer的事情，聊了十几分钟，包括待遇和正在做的项目，项目是一个比较文艺的众论app（很赞），聊到待遇的时候给我的答案就是实习生，确实很无奈，自己没有毕业证只能拿到实习生的待遇（实习生跟正式生的待遇差别很大），当时唯一的想法快点毕业吧。我说给我7天的时间考虑一下。<br>3天感受到很多，在这样一个大都市里，互联网发展程度确实是其他城市很难比及的，当然这也是我所想要的工作环境（虽然现在很冷。。）.. 到饭店了，吃完饭再更吧。<br>10.2更新<br>一吃饭吃了1天….<br>昨晚很热情的Anita说老板想要见我，很惊讶（心想要干嘛XD）,如约到了一家高大上的环境很赞的餐厅，乡下人毕竟不太适应这样的场合，等了几分钟一个爆炸头姐姐到了，也就是Anita的公司CEO，不知不觉就聊了3个多个小时，聊了很多很多，我当时的第一反应就是CEO不是想单纯的找一个程序员，更希望的是找一个综合素质高的人，我觉得这样的老板给人的感觉更像是在创业，瞬间对初创公司的好感度up很多，爆炸头老板人也超nice的，虽然疯疯癫癫的。<br>此时做出来自己的最后的选择，初创公司，我觉得我更像是是选择一个老板，我觉得一个好的公司不是说你的规模有多大逼格有多高，更应该是有一个好的工作气氛以及好的上司。希望未来的时光能够工作愉快。<br>背起背包选择了一条路，勇敢的走下去吧。</p>
 
-          
-        
       
     </div>
-
-    <div>
+    <footer class="article-footer">
       
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-RecyclerView"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/21/RecyclerView/" itemprop="url">
-                  RecyclerView的使用技巧
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/21/RecyclerView/">RecyclerView的使用技巧</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-09-21T20:17:56+08:00" content="2015-09-21">
-              2015-09-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/控件/" itemprop="url" rel="index">
-                    <span itemprop="name">控件</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/21/RecyclerView/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/21/RecyclerView/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2015/09/21/RecyclerView/" class="article-date">
+	  <time datetime="2015-09-21T12:17:56.000Z" itemprop="datePublished">2015-09-21</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/控件/">控件</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          
-            <p>RecyclerView(ListView)在一个App中出现的频率还是非常高的，它是官方出的一个用来替代ListView、GridView的控件，下面简单的介绍一下RecyclerView中一些简单的使用技巧。</p>
+        <p>RecyclerView(ListView)在一个App中出现的频率还是非常高的，它是官方出的一个用来替代ListView、GridView的控件，下面简单的介绍一下RecyclerView中一些简单的使用技巧。</p>
 <h2 id="官方">官方</h2><p>官方网址(需要翻墙)</p>
 <blockquote>
 <p><a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html</a></p>
@@ -1014,120 +662,48 @@ productFlavors.all { flavor -&gt;
 <li>在5.0以上的手机 RecyclerView嵌套在ScrollView 重写LayoutManager后 RecyclerView的滑动惯性会消失，此时可重写ScrollView即可<br>-</li>
 </ul>
 
-          
-        
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CardView/">CardView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ListView/">ListView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RecyclerView/">RecyclerView</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-Fresco-v-s-Universal-ImageLoader"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="url">
-                  异步图片加载Fresco v/s Universal Image Loader (UIL)
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/">异步图片加载Fresco v/s Universal Image Loader (UIL)</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-09-17T15:58:07+08:00" content="2015-09-17">
-              2015-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/17/Fresco-v-s-Universal-ImageLoader/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2015/09/17/Fresco-v-s-Universal-ImageLoader/" class="article-date">
+	  <time datetime="2015-09-17T07:58:07.000Z" itemprop="datePublished">2015-09-17</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/框架/">框架</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          
-            <p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
+        <p>在开发中我们经常会接触到图片的加载，图片加载是一个比较头疼的问题，你可以要考虑到图片的异步加载，图片的缓存处理、<br>图片的压缩处理等等，所以今天总结对比一下自己用过的2个开源图片框架，一个是大名鼎鼎的facebook出的fresco，<br>另外一个是使用人最多的Universal Image Loader (以下简称UIL),当然还有几款比较有名的图片框架，比如square的Picasso，鄙人没用过就不做比较了。</p>
 <h2 id="官方_Official">官方 Official</h2><h3 id="Fresco">Fresco</h3><p>官方文档</p>
 <blockquote>
 <p><a href="http://fresco-cn.org/" target="_blank" rel="external">http://fresco-cn.org/</a></p>
@@ -1178,120 +754,48 @@ productFlavors.all { flavor -&gt;
 <li>UIL 的在处理圆角边框缩放可能需要自己写View</li>
 </ul>
 
-          
-        
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UIL/">UIL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fresco/">fresco</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片加载/">图片加载</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-retrofit"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/16/retrofit/" itemprop="url">
-                  Android Retrofit框架的使用和个人见解
-                </a>
-              
-            
-          </h1>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2015/09/16/retrofit/">Android Retrofit框架的使用和个人见解</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">發表於</span>
-            <time itemprop="dateCreated" datetime="2015-09-16T15:36:02+08:00" content="2015-09-16">
-              2015-09-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/框架/" itemprop="url" rel="index">
-                    <span itemprop="name">框架</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/16/retrofit/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/16/retrofit/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2015/09/16/retrofit/" class="article-date">
+	  <time datetime="2015-09-16T07:36:02.000Z" itemprop="datePublished">2015-09-16</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/框架/">框架</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          
-            <p>在Android开发中经常会处理网络请求，接触这个框架也有一段时间了,它给了我很多的帮助，希望能分享给android新人。</p>
+        <p>在Android开发中经常会处理网络请求，接触这个框架也有一段时间了,它给了我很多的帮助，希望能分享给android新人。</p>
 <h2 id="简介">简介</h2><p>Retrofit官方给出的简介是这样的。</p>
 <blockquote>
 <p>Type-safe HTTP client for Android and Java by Square, Inc.</p>
@@ -1324,268 +828,203 @@ productFlavors.all { flavor -&gt;
 <li>需要重写GSON解析可以参考官方文档</li>
 </ul>
 
-          
-        
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Retrofit/">Retrofit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/okhttp/">okhttp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络加载/">网络加载</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
 
 
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Yat3s All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> 訪客數 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 訪問量 : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
     
-  </section>
-
-  
 
 
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="Yat3s" />
-          <p class="site-author-name" itemprop="name">Yat3s</p>
-          <p class="site-description motion-element" itemprop="description">一只爱玩的程序汪。</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">7</span>
-              <span class="site-state-item-name">文章</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
-              
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">標籤</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/Yat3s" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> Github
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/104645643" target="_blank">
-                  
-                    <i class="fa fa-weibo"></i> Weibo
-                  
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.facebook.com/Hawkoyates" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> Facebook
-                  
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Yat3s</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
-</div>
-
-<div class="theme-info">
-  主題 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-  
+<!-- mathjax config similar to math.stackexchange -->
 
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
+<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/bootstrap.js" type="text/javascript"></script>
+
+
+  <script src="/js/home.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Yat3s
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 Yat3s All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
   
 
-
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"Yat3s"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
-
-
-
-
-
-  
-  
-  
-
-  
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
 
 
 </body>
